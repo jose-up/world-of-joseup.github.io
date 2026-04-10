@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&display=swap');
+
+:root{
+    --website-text-default: #f7f2ea;
+    background-color: #1f1e20;
+}
+
+#main-page-title {
+    margin: 0;
+    position: relative;
+    isolation: isolate;
+    text-align: center;
+    font-family: 'Aclonica', sans-serif;
+    font-size: 50px;
+    font-weight: bold;
+    -webkit-text-stroke: 0.5px #f7f2ea;
+    color: transparent;
+    background: linear-gradient(to bottom, #d91643 50%, #144291 50%);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+#main-page-title::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    font-family: 'Aclonica', sans-serif;
+    font-size: 50px;
+    font-weight: bold;
+    -webkit-text-stroke: 1px #7036e6;
+    z-index: -1;
+}
+
+#main-page-subtitle{
+    color: var(--website-text-default);
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+
+
+#subsections{
+    display: flex;
+    align-items: center;
+}
+
+#subsections > a{
+    color: var(--website-text-default);
+    text-align: center;
+    flex: 3;
+    height: 100px;
+    margin-top: 40px;
+    text-decoration: none;
+}
