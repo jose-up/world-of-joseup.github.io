@@ -33,14 +33,14 @@
     z-index: -1;
 }
 
-#main-page-subtitle{
+.main-page-subtitle, #subsections > a{
     color: var(--website-text-default);
     text-align: center;
+}
+.main-page-subtitle{
     font-size: 25px;
     font-weight: bold;
 }
-
-
 
 #subsections{
     display: flex;
@@ -48,8 +48,6 @@
 }
 
 #subsections > a{
-    color: var(--website-text-default);
-    text-align: center;
     flex: 3;
     height: 100px;
     margin-top: 40px;
