@@ -21,6 +21,22 @@
       {
         "source": "/",
         "destination": "/forms/main.html"
+      },
+      {
+        "source": "/coding-projects",
+        "destination": "/forms/subsections/codingprojects.html"
+      },
+      {
+        "source": "/coding-projects/budget-management-tool",
+        "destination": "/forms/budgetmanagement.html"
+      },
+      {
+        "source": "/content-creation",
+        "destination": "/forms/subsections/contentcreation.html"
+      },
+      {
+        "source": "/more",
+        "destination": "/forms/subsections/more.html"
       }
     ]
   }
