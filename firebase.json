@@ -18,26 +18,16 @@
       }
     ],
     "rewrites": [
-      {
-        "source": "/",
-        "destination": "/forms/main.html"
-      },
-      {
-        "source": "/coding-projects",
-        "destination": "/forms/subsections/codingprojects.html"
-      },
-      {
-        "source": "/coding-projects/budget-management-tool",
-        "destination": "/forms/budgetmanagement.html"
-      },
-      {
-        "source": "/content-creation",
-        "destination": "/forms/subsections/contentcreation.html"
-      },
-      {
-        "source": "/more",
-        "destination": "/forms/subsections/more.html"
-      }
+      { "source": "/", "destination": "/forms/main.html" },
+      { "source": "/main.html", "destination": "/forms/main.html" },
+      { "source": "/subsections/codingprojects.html", "destination": "/forms/subsections/codingprojects.html" },
+      { "source": "/subsections/contentcreation.html", "destination": "/forms/subsections/contentcreation.html" },
+      { "source": "/subsections/more.html", "destination": "/forms/subsections/more.html" },
+      { "source": "/budgetmanagement.html", "destination": "/forms/budgetmanagement.html" },
+      { "source": "/coding-projects", "destination": "/forms/subsections/codingprojects.html" },
+      { "source": "/coding-projects/budget-management-tool", "destination": "/forms/budgetmanagement.html" },
+      { "source": "/content-creation", "destination": "/forms/subsections/contentcreation.html" },
+      { "source": "/more", "destination": "/forms/subsections/more.html" }
     ]
   }
 }
