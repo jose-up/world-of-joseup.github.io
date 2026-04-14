@@ -1,55 +1,83 @@
 @import url('https://fonts.googleapis.com/css2?family=Aclonica&display=swap');
 
 :root{
-    --website-text-default: #f7f2ea;
+    color: #f7f2ea;
     background-color: #1f1e20;
-}
-
-#main-page-title {
-    margin: 0;
-    position: relative;
-    isolation: isolate;
-    text-align: center;
     font-family: 'Aclonica', sans-serif;
-    font-size: 50px;
-    font-weight: bold;
-    -webkit-text-stroke: 0.5px #f7f2ea;
-    color: transparent;
-    background: linear-gradient(to bottom, #d91643 50%, #144291 50%);
-    -webkit-background-clip: text;
-    background-clip: text;
 }
 
-#main-page-title::after {
-    content: attr(data-text);
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    font-family: 'Aclonica', sans-serif;
-    font-size: 50px;
-    font-weight: bold;
-    -webkit-text-stroke: 1px #7036e6;
-    z-index: -1;
+.intro-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-.main-page-subtitle, #subsections > a{
-    color: var(--website-text-default);
+#joseup-title {
+  width: 430px;
+  position: relative;
+  z-index: 2;
+  margin-bottom: -60px;
+  filter: drop-shadow(6px 6px 12px #00000080);
+  -webkit-filter: drop-shadow(6px 6px 12px #00000080);
+}
+
+.intro-blurb {
+  background-color: #b583c9d9;
+  padding: 20px;
+  font-size: 14px;
+  width: 435px;
+  flex: none;
+  position: relative;
+  z-index: 1;
+  text-align: left;
+  line-height: 20px;
+}
+
+.subtitle{
     text-align: center;
+    justify-content: center;
+    font-size: 15px;
 }
-.main-page-subtitle{
-    font-size: 25px;
-    font-weight: bold;
+
+.icon-row > h3{
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.icon-row h3 a{
+    text-decoration: none;
+}
+
+#socials img{
+  filter: brightness(0) invert(1);
 }
 
 #subsections{
     display: flex;
     align-items: center;
+    justify-content: center;
+    gap: 16px;
 }
 
 #subsections > a{
+    display: flex;
     flex: 3;
-    height: 100px;
-    margin-top: 40px;
+    color: inherit;
+    background-color: #b583c9d9;
+    height: 40px;
     text-decoration: none;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s;
+    -webkit-transition: background-color 0.2s;
+    -moz-transition: background-color 0.2s;
+    -ms-transition: background-color 0.2s;
+    -o-transition: background-color 0.2s;
+}
+
+#subsections > a:hover{
+    background-color: #c99edd;
 }
