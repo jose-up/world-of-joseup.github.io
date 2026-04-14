@@ -17,8 +17,8 @@
 #joseup-title {
   width: 430px;
   position: relative;
+  margin: -5px;
   z-index: 2;
-  margin-bottom: -60px;
   filter: drop-shadow(6px 6px 12px #00000080);
   -webkit-filter: drop-shadow(6px 6px 12px #00000080);
 }
@@ -26,9 +26,10 @@
 .intro-wrapper {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 40px;
-    max-width: 1200px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
 }
@@ -42,15 +43,15 @@
 }
 
 .intro-blurb {
-  background-color: #5874a7d9;
-  padding: 20px;
-  font-size: 14px;
-  width: 435px;
-  flex: none;
-  position: relative;
-  z-index: 1;
-  text-align: left;
-  line-height: 20px;
+    background-color: #5874a7d9;
+    padding: 20px;
+    font-size: 14px;
+    width: 435px;
+    flex: none;
+    position: relative;
+    z-index: 1;
+    text-align: left;
+    line-height: 20px;
 }
 
 .subtitle{
@@ -69,29 +70,31 @@
   
 }
 
-#subsections{
+#subsections {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
+    flex-direction: column;
+    gap: 8px;
+    align-items: stretch;
+    width: 100%;
 }
 
-#subsections > a{
+#subsections > a {
     display: flex;
-    flex: 3;
     color: inherit;
-    background-color: #5874a7d9;
+    background-color: #b583c9d9;
     height: 40px;
     text-decoration: none;
     justify-content: center;
     align-items: center;
     transition: background-color 0.2s;
-    -webkit-transition: background-color 0.2s;
-    -moz-transition: background-color 0.2s;
-    -ms-transition: background-color 0.2s;
-    -o-transition: background-color 0.2s;
 }
 
-#subsections > a:hover{
-    background-color: #688bced9;
+#subsections > a:hover {
+    background-color: #c99edd;
+}
+
+embed{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
