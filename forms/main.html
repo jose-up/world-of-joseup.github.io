@@ -3,22 +3,14 @@
     <head>
         <title>The World of Joseup! >:&#41</title>
         <link rel="stylesheet" href="../styles/mainpage.css"/>
+        <link rel="icon" type="image/svg+xml" href="../assets/icons/bhrhit.svg">
         <script src="../scripts/functions.js" defer></script>
     </head>
     <body>
-        <div class="intro-wrapper">
-            <span class="intro-section">
-                <img id="joseup-title" src="../assets/images/joseuptitle.png" alt="Joseup"> 
-                <h2>Joseph Bennett Zeru (he/him)</h2>
-                <div class="intro-blurb">
-                    <ul>
-                        <li>Math-oriented developer with research focuses in Classical Machine Learning & Quantum Algorithms</li>
-                        <li>Content creator who posts about the young adult experience, college life and consumer tech</li>
-                        <li>Cellist, Pianist, Guitarist, and Composer</li>
-                        <li>R&B and Psychedlic Rap Enthusiast</li>
-                    </ul>
-                </div>
-                <h3 id="education">
+        <div id="header">
+            <img id="joseup-title" src="../assets/images/joseuptitle.png" alt="Joseup"> 
+            <h2>Joseph Bennett Zeru (he/him)</h2>
+                <h1 id="education">
                     <a class="rosehulman-icons" href="https://www.rose-hulman.edu/" target="blank">
                     <img align="center" src="../assets/icons/rosehulman.svg" 
                     alt="rose-hulman" height="30" width="180" />
@@ -31,17 +23,8 @@
                     <img align="center" src="../assets/icons/linkedin.svg" 
                     alt="linkedin/joseph-zeru" height="30" width="40" />
                     </a>
-                </h3>
-            </span>
-            <span class="intro-scetion">
-                <iframe data-testid="embed-iframe" style="border-radius:12px" 
-                    src="https://open.spotify.com/embed/playlist/6OzRIfmaiGhbjMQDS2joFv?utm_source=generator" 
-                    width="100%" height="400" frameBorder="0" allowfullscreen="" 
-                    allow="autoplay; clipboard-write; 
-                    encrypted-media; fullscreen; picture-in-picture" 
-                    loading="lazy">
-                </iframe>
-                <h3>
+                </h1>
+                <h1>
                     <a class="social-icons" href="https://open.spotify.com/user/3wu8qv0nazznc8hj6bbp942n0?si=d5d7ef2cacf846f8" target="blank">
                     <img align="center" src="../assets/icons/spotify.svg" 
                     alt="yt/@joseup.mp4" height="30" width="40" />
@@ -54,24 +37,44 @@
                     <img align="center" src="../assets/icons/youtube.svg" 
                     alt="yt/@joseup.mp4" height="30" width="40" />
                     </a>
-                </h3>
+                </h1>
+        </div>
+        <div class="intro-wrapper">
+            <span class="intro-section">
+                <iframe data-testid="embed-iframe" height="300" style="border-radius:12px" 
+                src="https://open.spotify.com/embed/playlist/6OzRIfmaiGhbjMQDS2joFv?utm_source=generator&theme=0" 
+                width="100%" height="352" frameBorder="0" allowfullscreen="" 
+                allow="autoplay; clipboard-write; 
+                encrypted-media; fullscreen; picture-in-picture" 
+                loading="lazy">
+            </iframe>
             </span>
-            <div class="intro-section">
+            <span class="intro-section">
+                <div class="intro-blurb">
+                    <ul>
+                        <li>Math-oriented developer with research focuses in Classical Machine Learning & Quantum Algorithms</li>
+                        <li>Content creator who posts about the young adult experience, college life and consumer tech</li>
+                        <li>Cellist, Pianist, Guitarist, and Composer</li>
+                        <li>R&B and Psychedlic Rap Enthusiast</li>
+                    </ul>
+                </div>
+            </span>
+            <span class="intro-section">
                 <nav id="subsections">
                     <a href="subsections/codingprojects.html">Coding Projects</a>
                     <a href="subsections/contentcreation.html">Content Creation</a>
+                    <a href="https://www.youtube.com/watch?v=8TZMtslA3UY">Coming Soon...</a>
                     <a href="subsections/more.html">More...</a>
                 </nav>
-            </div>
+            </span>
         </div>
-        
         <!--
         Source - https://stackoverflow.com/a/7044015
         Posted by Batfan, modified by community. See post 'Timeline' for change history
         Retrieved 2026-04-14, License - CC BY-SA 4.0
         -->
         <br>
-        <embed src="../assets/etc/Undergraduate_OfficialResume.pdf" 
+        <embed class="resume" src="../assets/etc/Undergraduate_OfficialResume.pdf" 
         width="816" height="1096" type="application/pdf">
     </body>
 </html>
