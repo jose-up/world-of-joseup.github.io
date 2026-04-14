@@ -19,7 +19,7 @@ function getSections() {
     var items = getItems(scenario);
     var sections = [];
     for (var i = 0; i < items.length; i++) {
-        if (items[i].section && sections.indexOf(items[i].section) === -1) {
+        if (items[i] && items[i].section && sections.indexOf(items[i].section) === -1) {
             sections.push(items[i].section);
         }
     }
@@ -27,13 +27,17 @@ function getSections() {
 }
 
 function showSectionDropdown(filter) {
+    if (filter === undefined || filter === null) {
+        filter = '';
+    }
+
     var dropdown = document.getElementById('section-dropdown');
     var sections = getSections();
     dropdown.innerHTML = '';
 
     var matches = [];
     for (var i = 0; i < sections.length; i++) {
-        if (sections[i].toLowerCase().indexOf(filter.toLowerCase()) !== -1) {
+        if (sections[i] && sections[i].toLowerCase().indexOf(filter.toLowerCase()) !== -1) {
             matches.push(sections[i]);
         }
     }
@@ -89,15 +93,22 @@ function renderTables() {
     var container = document.getElementById('tables-container');
     container.innerHTML = '';
 
+    var needsSave = false;
     for (var i = 0; i < items.length; i++) {
-        if (!items[i].section) {
-            items[i].section = 'Uncategorized';
+        if (!items[i] || !items[i].section) {
+            if (items[i]) {
+                items[i].section = 'Uncategorized';
+                needsSave = true;
+            }
         }
+    }
+    if (needsSave) {
+        saveItems(scenario, items);
     }
 
     var sections = [];
     for (var i = 0; i < items.length; i++) {
-        if (sections.indexOf(items[i].section) === -1) {
+        if (items[i] && sections.indexOf(items[i].section) === -1) {
             sections.push(items[i].section);
         }
     }
@@ -111,7 +122,7 @@ function renderTables() {
             '<tr><th>Product</th><th>Price</th><th></th></tr>';
 
         for (var j = 0; j < items.length; j++) {
-            if (items[j].section === section) {
+            if (items[j] && items[j].section === section) {
                 total += parseFloat(items[j].price || 0);
                 html += '<tr>' +
                     '<td><a href="' + items[j].link + '" target="_blank">' + items[j].name + '</a></td>' +
@@ -195,12 +206,17 @@ document.getElementById('add-item-form').addEventListener('submit', function(e) 
     e.preventDefault();
     var scenario = document.getElementById('scenario-select').value;
     var items = getItems(scenario);
+    var sectionValue = document.getElementById('item-section').value;
+
+    if (!sectionValue || sectionValue.trim() === '') {
+        sectionValue = 'Uncategorized';
+    }
 
     items.push({
         name: document.getElementById('item-name').value,
         link: document.getElementById('item-link').value,
         price: document.getElementById('item-price').value,
-        section: document.getElementById('item-section').value
+        section: sectionValue.trim()
     });
 
     saveItems(scenario, items);
