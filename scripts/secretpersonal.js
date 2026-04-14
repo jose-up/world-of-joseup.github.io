@@ -1,9 +1,9 @@
-function getScenarios() {
-    return JSON.parse(localStorage.getItem('scenarios')) || ['A', 'B'];
+function getLists() {
+    return JSON.parse(localStorage.getItem('lists')) || ['A', 'B'];
 }
 
-function saveScenarios(scenarios) {
-    localStorage.setItem('scenarios', JSON.stringify(scenarios));
+function saveLists(lists) {
+    localStorage.setItem('lists', JSON.stringify(lists));
 }
 
 function getItems(scenario) {
@@ -63,24 +63,24 @@ function showSectionDropdown(filter) {
 }
 
 function renderScenarioDropdown() {
-    var scenarios = getScenarios();
+    var lists = getLists();
     var select = document.getElementById('scenario-select');
     var current = select.value;
     select.innerHTML = '';
 
-    for (var i = 0; i < scenarios.length; i++) {
+    for (var i = 0; i < lists.length; i++) {
         var option = document.createElement('option');
-        option.value = scenarios[i];
-        option.textContent = scenarios[i];
+        option.value = lists[i];
+        option.textContent = lists[i];
         select.appendChild(option);
     }
 
-    if (current && scenarios.indexOf(current) !== -1) {
+    if (current && lists.indexOf(current) !== -1) {
         select.value = current;
     }
 
     var removeBtn = document.getElementById('remove-scenario-btn');
-    if (scenarios.length === 1) {
+    if (lists.length === 1) {
         removeBtn.style.display = 'none';
     } else {
         removeBtn.style.display = 'inline-block';
@@ -107,6 +107,10 @@ function renderTables() {
     }
 
     var sections = [];
+    var grandTotal = 0;
+    var excludedTotals = 0;
+    var hasGiftSection = false;
+    var giftRegex = /gift/i;
     for (var i = 0; i < items.length; i++) {
         if (items[i] && sections.indexOf(items[i].section) === -1) {
             sections.push(items[i].section);
@@ -140,6 +144,31 @@ function renderTables() {
 
         table.innerHTML = html;
         container.appendChild(table);
+
+        if (giftRegex.test(section)) {
+            excludedTotals += total;
+            hasGiftSection = true;
+        } else {
+            grandTotal += total;
+        }
+    }
+
+    // Add excluded totals and grand total at the bottom
+    if (sections.length > 0) {
+        var summaryDiv = document.createElement('div');
+        summaryDiv.className = 'grand-total';
+
+        if (hasGiftSection) {
+            var excludedLabel = document.createElement('div');
+            excludedLabel.textContent = 'Gift Total: $' + excludedTotals.toFixed(2);
+            summaryDiv.appendChild(excludedLabel);
+        }
+
+        var grandTotalLabel = document.createElement('div');
+        grandTotalLabel.textContent = 'Grand Total: $' + grandTotal.toFixed(2);
+        summaryDiv.appendChild(grandTotalLabel);
+
+        container.appendChild(summaryDiv);
     }
 
     var removeButtons = container.querySelectorAll('button.remove-btn');
@@ -166,13 +195,13 @@ document.getElementById('add-scenario-btn').addEventListener('click', function()
     var name = document.getElementById('new-scenario-name').value.trim();
     if (!name) return;
 
-    var scenarios = getScenarios();
-    if (scenarios.indexOf(name) !== -1) {
+    var lists = getLists();
+    if (lists.indexOf(name) !== -1) {
         return;
     }
 
-    scenarios.push(name);
-    saveScenarios(scenarios);
+    lists.push(name);
+    saveLists(lists);
     renderScenarioDropdown();
     document.getElementById('scenario-select').value = name;
     document.getElementById('new-scenario-name').value = '';
@@ -180,22 +209,22 @@ document.getElementById('add-scenario-btn').addEventListener('click', function()
 });
 
 document.getElementById('remove-scenario-btn').addEventListener('click', function() {
-    var scenarios = getScenarios();
-    if (scenarios.length === 1) {
+    var lists = getLists();
+    if (lists.length === 1) {
         return;
     }
 
     var scenario = document.getElementById('scenario-select').value;
     localStorage.removeItem('budget-' + scenario);
 
-    var newScenarios = [];
-    for (var i = 0; i < scenarios.length; i++) {
-        if (scenarios[i] !== scenario) {
-            newScenarios.push(scenarios[i]);
+    var newLists = [];
+    for (var i = 0; i < lists.length; i++) {
+        if (lists[i] !== scenario) {
+            newLists.push(lists[i]);
         }
     }
 
-    saveScenarios(newScenarios);
+    saveLists(newLists);
     renderScenarioDropdown();
     renderTables();
 });
