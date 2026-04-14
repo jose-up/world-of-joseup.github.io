@@ -23,6 +23,24 @@
   -webkit-filter: drop-shadow(6px 6px 12px #00000080);
 }
 
+.intro-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.intro-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 0 1 430px;
+    min-width: 280px;
+}
+
 .intro-blurb {
   background-color: #b583c9d9;
   padding: 20px;
@@ -41,18 +59,10 @@
     font-size: 15px;
 }
 
-.icon-row > h3{
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-}
-
-.icon-row h3 a{
-    text-decoration: none;
-}
-
-#socials img{
+.social-icons{
   filter: brightness(0) invert(1);
+  text-decoration: none;
+  
 }
 
 #subsections{
