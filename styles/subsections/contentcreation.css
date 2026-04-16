@@ -1,5 +1,31 @@
 :root{
     color: #f7f2ea;
-    background-color: #1f1e20;
+    background-color: black;
     font-family: 'Josefin Sans';font-size: 22px;
+}
+
+body {
+    margin: 0;
+}
+
+.content-creation {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    text-align: center;
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+.centered-photo {
+    display: block;
+    max-width: min(520px, 90vw);
+    height: auto;
+}
+
+.warning-photo {
+    max-width: min(120px, 30vw);
 }
