@@ -8,7 +8,7 @@
     --intro-left-col: 350px;
     --intro-middle-col: 450px;
     --intro-right-col: 250px;
-    --header-nudge: 18px;
+    --header-nudge: calc((var(--intro-left-col) - var(--intro-right-col)) / 2);
     --action-width: 244px;
     --action-height: 38px;
     --stack-gap: 6px;
@@ -33,6 +33,7 @@ body {
     box-sizing: border-box;
     padding: 20px;
     transform: translateX(var(--header-nudge));
+
 }
 
 #header h1 {
@@ -41,11 +42,13 @@ body {
   gap: 5px;
     margin: 10px 0 2px;
 }
-
 #joseup-title {
-    width: 430px;
-    filter: drop-shadow(6px 6px 12px #00000080);
-    -webkit-filter: drop-shadow(6px 6px 12px #00000080);
+    width: 100%;
+    max-width: 450px;
+    position: relative;
+    margin: -5px;
+    left: -15px;
+    z-index: 2;
 }
 
 .intro-wrapper {
@@ -85,16 +88,6 @@ body {
     align-self: center;
     justify-content: center;
     margin-left: var(--side-balance-gap);
-}
-
-#joseup-title {
-    width: 100%;
-    max-width: 450px;
-    position: relative;
-    margin: -5px;
-    z-index: 2;
-    filter: drop-shadow(6px 6px 12px #00000080);
-    -webkit-filter: drop-shadow(6px 6px 12px #00000080);
 }
 
 .intro-blurb {
@@ -181,4 +174,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media (max-width: 1100px) {
+        :root {
+                --header-nudge: 0px;
+        }
 }
