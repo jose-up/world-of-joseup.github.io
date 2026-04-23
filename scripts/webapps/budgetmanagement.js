@@ -1,4 +1,43 @@
 var BUDGET_DEPLOY_VERSION = '2026-04-22-1';
+var LISTS_STORAGE_KEY = 'budget-lists';
+var LEGACY_LISTS_STORAGE_KEY = 'lists';
+var ITEM_STORAGE_PREFIX = 'budget-list-';
+var LEGACY_ITEM_STORAGE_PREFIX = 'budget-';
+
+function getItemStorageKey(listName) {
+    return ITEM_STORAGE_PREFIX + listName;
+}
+
+function getLegacyItemStorageKey(listName) {
+    return LEGACY_ITEM_STORAGE_PREFIX + listName;
+}
+
+function migrateLegacyBudgetStorageKeys() {
+    var currentLists = JSON.parse(localStorage.getItem(LISTS_STORAGE_KEY) || 'null');
+    var legacyLists = JSON.parse(localStorage.getItem(LEGACY_LISTS_STORAGE_KEY) || 'null');
+
+    if (!Array.isArray(currentLists) && Array.isArray(legacyLists)) {
+        localStorage.setItem(LISTS_STORAGE_KEY, JSON.stringify(legacyLists));
+        currentLists = legacyLists;
+    }
+
+    if (!Array.isArray(currentLists)) {
+        currentLists = [];
+    }
+
+    for (var i = 0; i < currentLists.length; i++) {
+        var listName = currentLists[i];
+        var newKey = getItemStorageKey(listName);
+        var legacyKey = getLegacyItemStorageKey(listName);
+
+        if (localStorage.getItem(newKey) === null) {
+            var legacyItems = localStorage.getItem(legacyKey);
+            if (legacyItems !== null) {
+                localStorage.setItem(newKey, legacyItems);
+            }
+        }
+    }
+}
 
 function clearBudgetStorageOnNewDeploy() {
     var versionKey = 'budget-deploy-version';
@@ -24,19 +63,19 @@ function clearBudgetStorageOnNewDeploy() {
 }
 
 function getLists() {
-    return JSON.parse(localStorage.getItem('lists')) || ['A', 'B'];
+    return JSON.parse(localStorage.getItem(LISTS_STORAGE_KEY)) || JSON.parse(localStorage.getItem(LEGACY_LISTS_STORAGE_KEY)) || ['A', 'B'];
 }
 
 function saveLists(lists) {
-    localStorage.setItem('lists', JSON.stringify(lists));
+    localStorage.setItem(LISTS_STORAGE_KEY, JSON.stringify(lists));
 }
 
-function getItems(scenario) {
-    return JSON.parse(localStorage.getItem('budget-' + scenario)) || [];
+function getItems(listName) {
+    return JSON.parse(localStorage.getItem(getItemStorageKey(listName))) || JSON.parse(localStorage.getItem(getLegacyItemStorageKey(listName))) || [];
 }
 
-function saveItems(scenario, items) {
-    localStorage.setItem('budget-' + scenario, JSON.stringify(items));
+function saveItems(listName, items) {
+    localStorage.setItem(getItemStorageKey(listName), JSON.stringify(items));
 }
 
 function createItemId() {
@@ -47,8 +86,8 @@ function createItemId() {
 }
 
 function getSections() {
-    var scenario = document.getElementById('scenario-select').value;
-    var items = getItems(scenario);
+    var listName = document.getElementById('list-select').value;
+    var items = getItems(listName);
     var sections = [];
     for (var i = 0; i < items.length; i++) {
         if (items[i] && items[i].section && sections.indexOf(items[i].section) === -1) {
@@ -94,9 +133,9 @@ function showSectionDropdown(filter) {
     dropdown.style.display = 'block';
 }
 
-function renderScenarioDropdown() {
+function renderListDropdown() {
     var lists = getLists();
-    var select = document.getElementById('scenario-select');
+    var select = document.getElementById('list-select');
     var current = select.value;
     select.innerHTML = '';
 
@@ -111,7 +150,7 @@ function renderScenarioDropdown() {
         select.value = current;
     }
 
-    var removeBtn = document.getElementById('remove-scenario-btn');
+    var removeBtn = document.getElementById('remove-list-btn');
     if (lists.length === 1) {
         removeBtn.style.display = 'none';
     } else {
@@ -120,8 +159,8 @@ function renderScenarioDropdown() {
 }
 
 function renderTables() {
-    var scenario = document.getElementById('scenario-select').value;
-    var items = getItems(scenario);
+    var listName = document.getElementById('list-select').value;
+    var items = getItems(listName);
     var container = document.getElementById('tables-container');
     var giftRegex = /gift/i;
     container.innerHTML = '';
@@ -151,7 +190,7 @@ function renderTables() {
         }
     }
     if (needsSave) {
-        saveItems(scenario, items);
+        saveItems(listName, items);
     }
 
     var sections = [];
@@ -166,6 +205,7 @@ function renderTables() {
 
     for (var s = 0; s < sections.length; s++) {
         var section = sections[s];
+        var isGiftSection = giftRegex.test(section);
         var total = 0;
 
         var table = document.createElement('table');
@@ -174,14 +214,17 @@ function renderTables() {
 
         for (var j = 0; j < items.length; j++) {
             if (items[j] && items[j].section === section) {
-                var giftButtonLabel = items[j].isGifted ? 'Ungift' : 'Gift';
+                var giftButtonLabel = items[j].isGifted ? 'Unmark Gift' : 'Gift';
                 var giftButtonClass = items[j].isGifted ? 'gift-btn ungift-btn' : 'gift-btn';
+                var actionButtons = '<button type="button" class="remove-btn" data-item-id="' + items[j].id + '">Remove</button>';
+                if (!isGiftSection) {
+                    actionButtons = '<button type="button" class="' + giftButtonClass + '" data-item-id="' + items[j].id + '">' + giftButtonLabel + '</button><br>' + actionButtons;
+                }
                 total += parseFloat(items[j].price || 0);
                 html += '<tr>' +
                     '<td><a href="' + items[j].link + '" target="_blank">' + items[j].name + '</a></td>' +
                     '<td>$' + parseFloat(items[j].price || 0).toFixed(2) + '</td>' +
-                    '<td><button type="button" class="' + giftButtonClass + '" data-item-id="' + items[j].id + '">' + giftButtonLabel + '</button><br><button type="button" class="remove-btn" data-item-id="'
-                    + items[j].id + '">Remove</button></td>' + '</tr>';
+                    '<td>' + actionButtons + '</td>' + '</tr>';
             }
         }
 
@@ -194,7 +237,7 @@ function renderTables() {
         table.innerHTML = html;
         container.appendChild(table);
 
-        if (giftRegex.test(section)) {
+        if (isGiftSection) {
             excludedTotals += total;
             hasGiftSection = true;
         } else {
@@ -202,7 +245,7 @@ function renderTables() {
         }
 
         for (var k = 0; k < items.length; k++) {
-            if (items[k] && items[k].section === section && !!items[k].isGifted && !giftRegex.test(section)) {
+            if (items[k] && items[k].section === section && !!items[k].isGifted && !isGiftSection) {
                 excludedTotals += parseFloat(items[k].price || 0);
                 grandTotal -= parseFloat(items[k].price || 0);
                 hasGiftSection = true;
@@ -230,8 +273,8 @@ function renderTables() {
 
 }
 
-document.getElementById('add-scenario-btn').addEventListener('click', function() {
-    var name = document.getElementById('new-scenario-name').value.trim();
+document.getElementById('add-list-btn').addEventListener('click', function() {
+    var name = document.getElementById('new-list-name').value.trim();
     if (!name) return;
 
     var lists = getLists();
@@ -241,39 +284,40 @@ document.getElementById('add-scenario-btn').addEventListener('click', function()
 
     lists.push(name);
     saveLists(lists);
-    renderScenarioDropdown();
-    document.getElementById('scenario-select').value = name;
-    document.getElementById('new-scenario-name').value = '';
+    renderListDropdown();
+    document.getElementById('list-select').value = name;
+    document.getElementById('new-list-name').value = '';
     renderTables();
 });
 
-document.getElementById('remove-scenario-btn').addEventListener('click', function() {
+document.getElementById('remove-list-btn').addEventListener('click', function() {
     var lists = getLists();
     if (lists.length === 1) {
         return;
     }
 
-    var scenario = document.getElementById('scenario-select').value;
-    localStorage.removeItem('budget-' + scenario);
+    var listName = document.getElementById('list-select').value;
+    localStorage.removeItem(getItemStorageKey(listName));
+    localStorage.removeItem(getLegacyItemStorageKey(listName));
 
     var newLists = [];
     for (var i = 0; i < lists.length; i++) {
-        if (lists[i] !== scenario) {
+        if (lists[i] !== listName) {
             newLists.push(lists[i]);
         }
     }
 
     saveLists(newLists);
-    renderScenarioDropdown();
+    renderListDropdown();
     renderTables();
 });
 
-document.getElementById('scenario-select').addEventListener('change', renderTables);
+document.getElementById('list-select').addEventListener('change', renderTables);
 
 document.getElementById('add-item-form').addEventListener('submit', function(e) {
     e.preventDefault();
-    var scenario = document.getElementById('scenario-select').value;
-    var items = getItems(scenario);
+    var listName = document.getElementById('list-select').value;
+    var items = getItems(listName);
     var sectionValue = document.getElementById('item-section').value;
 
     if (!sectionValue || sectionValue.trim() === '') {
@@ -288,7 +332,7 @@ document.getElementById('add-item-form').addEventListener('submit', function(e) 
         section: sectionValue.trim()
     });
 
-    saveItems(scenario, items);
+    saveItems(listName, items);
     document.getElementById('add-item-form').reset();
     renderTables();
 });
@@ -308,8 +352,8 @@ tablesContainer.addEventListener('click', function(e) {
         return;
     }
 
-    var currentScenario = document.getElementById('scenario-select').value;
-    var currentItems = getItems(currentScenario);
+    var currentList = document.getElementById('list-select').value;
+    var currentItems = getItems(currentList);
 
     if (button.classList.contains('remove-btn')) {
         var remainingItems = [];
@@ -318,7 +362,7 @@ tablesContainer.addEventListener('click', function(e) {
                 remainingItems.push(currentItems[i]);
             }
         }
-        saveItems(currentScenario, remainingItems);
+        saveItems(currentList, remainingItems);
         renderTables();
         return;
     }
@@ -335,7 +379,7 @@ tablesContainer.addEventListener('click', function(e) {
             }
             updatedItems.push(currentItems[j]);
         }
-        saveItems(currentScenario, updatedItems);
+        saveItems(currentList, updatedItems);
         renderTables();
     }
 });
@@ -352,6 +396,7 @@ sectionInput.addEventListener('blur', function() {
     sectionDropdown.style.display = 'none';
 });
 
+migrateLegacyBudgetStorageKeys();
 clearBudgetStorageOnNewDeploy();
-renderScenarioDropdown();
+renderListDropdown();
 renderTables();
