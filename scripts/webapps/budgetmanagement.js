@@ -14,6 +14,13 @@ function saveItems(scenario, items) {
     localStorage.setItem('budget-' + scenario, JSON.stringify(items));
 }
 
+function createItemId() {
+    if (window.crypto && typeof window.crypto.randomUUID === 'function') {
+        return window.crypto.randomUUID();
+    }
+    return String(Date.now()) + '-' + String(Math.random()).slice(2);
+}
+
 function getSections() {
     var scenario = document.getElementById('scenario-select').value;
     var items = getItems(scenario);
@@ -91,6 +98,7 @@ function renderTables() {
     var scenario = document.getElementById('scenario-select').value;
     var items = getItems(scenario);
     var container = document.getElementById('tables-container');
+    var giftRegex = /gift/i;
     container.innerHTML = '';
 
     var needsSave = false;
@@ -98,6 +106,21 @@ function renderTables() {
         if (!items[i] || !items[i].section) {
             if (items[i]) {
                 items[i].section = 'Uncategorized';
+                needsSave = true;
+            }
+        }
+        if (items[i] && !items[i].id) {
+            items[i].id = createItemId();
+            needsSave = true;
+        }
+        if (items[i] && giftRegex.test(items[i].section || '')) {
+            if (!items[i].isGifted) {
+                items[i].isGifted = true;
+                needsSave = true;
+            }
+            if (items[i].previousSection) {
+                items[i].section = items[i].previousSection;
+                delete items[i].previousSection;
                 needsSave = true;
             }
         }
@@ -110,7 +133,6 @@ function renderTables() {
     var grandTotal = 0;
     var excludedTotals = 0;
     var hasGiftSection = false;
-    var giftRegex = /gift/i;
     for (var i = 0; i < items.length; i++) {
         if (items[i] && sections.indexOf(items[i].section) === -1) {
             sections.push(items[i].section);
@@ -127,12 +149,14 @@ function renderTables() {
 
         for (var j = 0; j < items.length; j++) {
             if (items[j] && items[j].section === section) {
+                var giftButtonLabel = items[j].isGifted ? 'Ungift' : 'Gift';
+                var giftButtonClass = items[j].isGifted ? 'gift-btn ungift-btn' : 'gift-btn';
                 total += parseFloat(items[j].price || 0);
                 html += '<tr>' +
                     '<td><a href="' + items[j].link + '" target="_blank">' + items[j].name + '</a></td>' +
                     '<td>$' + parseFloat(items[j].price || 0).toFixed(2) + '</td>' +
-                    '<td><button class="remove-btn" data-global-index="' + j + '">Remove</button></td>' +
-                '</tr>';
+                    '<td><button type="button" class="' + giftButtonClass + '" data-item-id="' + items[j].id + '">' + giftButtonLabel + '</button><br><button type="button" class="remove-btn" data-item-id="'
+                    + items[j].id + '">Remove</button></td>' + '</tr>';
             }
         }
 
@@ -150,6 +174,14 @@ function renderTables() {
             hasGiftSection = true;
         } else {
             grandTotal += total;
+        }
+
+        for (var k = 0; k < items.length; k++) {
+            if (items[k] && items[k].section === section && !!items[k].isGifted && !giftRegex.test(section)) {
+                excludedTotals += parseFloat(items[k].price || 0);
+                grandTotal -= parseFloat(items[k].price || 0);
+                hasGiftSection = true;
+            }
         }
     }
 
@@ -171,24 +203,6 @@ function renderTables() {
         container.appendChild(summaryDiv);
     }
 
-    var removeButtons = container.querySelectorAll('button.remove-btn');
-    for (var b = 0; b < removeButtons.length; b++) {
-        removeButtons[b].addEventListener('click', function() {
-            var currentScenario = document.getElementById('scenario-select').value;
-            var currentItems = getItems(currentScenario);
-            var globalIndex = parseInt(this.getAttribute('data-global-index'));
-
-            var newItems = [];
-            for (var n = 0; n < currentItems.length; n++) {
-                if (n !== globalIndex) {
-                    newItems.push(currentItems[n]);
-                }
-            }
-
-            saveItems(currentScenario, newItems);
-            renderTables();
-        });
-    }
 }
 
 document.getElementById('add-scenario-btn').addEventListener('click', function() {
@@ -242,6 +256,7 @@ document.getElementById('add-item-form').addEventListener('submit', function(e) 
     }
 
     items.push({
+        id: createItemId(),
         name: document.getElementById('item-name').value,
         link: document.getElementById('item-link').value,
         price: document.getElementById('item-price').value,
@@ -255,6 +270,50 @@ document.getElementById('add-item-form').addEventListener('submit', function(e) 
 
 var sectionInput = document.getElementById('item-section');
 var sectionDropdown = document.getElementById('section-dropdown');
+var tablesContainer = document.getElementById('tables-container');
+
+tablesContainer.addEventListener('click', function(e) {
+    var button = e.target.closest('button.remove-btn, button.gift-btn');
+    if (!button || !tablesContainer.contains(button)) {
+        return;
+    }
+
+    var itemId = button.getAttribute('data-item-id');
+    if (!itemId) {
+        return;
+    }
+
+    var currentScenario = document.getElementById('scenario-select').value;
+    var currentItems = getItems(currentScenario);
+
+    if (button.classList.contains('remove-btn')) {
+        var remainingItems = [];
+        for (var i = 0; i < currentItems.length; i++) {
+            if (!currentItems[i] || currentItems[i].id !== itemId) {
+                remainingItems.push(currentItems[i]);
+            }
+        }
+        saveItems(currentScenario, remainingItems);
+        renderTables();
+        return;
+    }
+
+    if (button.classList.contains('gift-btn')) {
+        var updatedItems = [];
+        for (var j = 0; j < currentItems.length; j++) {
+            if (!currentItems[j]) {
+                continue;
+            }
+
+            if (currentItems[j].id === itemId) {
+                currentItems[j].isGifted = !currentItems[j].isGifted;
+            }
+            updatedItems.push(currentItems[j]);
+        }
+        saveItems(currentScenario, updatedItems);
+        renderTables();
+    }
+});
 
 sectionInput.addEventListener('input', function() {
     showSectionDropdown(this.value);

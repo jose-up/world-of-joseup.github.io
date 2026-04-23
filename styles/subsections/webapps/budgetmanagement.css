@@ -4,6 +4,10 @@
     font-family: 'OpenDyslexic', sans-serif;
     color: #f7f2ea;
     background-color: #1f1e20;
+
+    --radius: 8px;
+    --radius-sm: 4px;
+    --radius-lg: 12px;
 }
 
 body {
@@ -18,7 +22,7 @@ section {
     border: 1px solid #f7f2ea;
     padding: 16px;
     margin: 20px 0;
-    border-radius: 4px;
+    border-radius: var(--radius);
 }
 
 #scenario-controls {
@@ -37,6 +41,21 @@ select, input, button {
     border: 1px solid #f7f2ea;
     margin: 5px;
     padding: 4px 8px;
+    border-radius: var(--radius-sm);
+}
+
+#add-scenario-btn,
+#add-item-form button[type="submit"] {
+    border-color: #36b37e;
+}
+
+#remove-scenario-btn,
+button.remove-btn {
+    border-color: #d91643;
+}
+
+button.gift-btn {
+    border-color: #4a3a8f;
 }
 
 #item-grid {
@@ -71,6 +90,7 @@ table {
     min-width: 280px;
     width: 100%;
     margin: 0;
+    border-radius: var(--radius);
 }
 
 caption {
@@ -119,20 +139,44 @@ a:hover {
     color: #b9b9b9;
 }
 
-button.remove-btn {
+button.remove-btn, button.gift-btn{
     display: inline-block;
     background: none;
     border: 1px solid #f7f2ea;
     cursor: pointer;
     padding: 2px 6px;
-    margin: 0;
-    border-radius: 4px;
+    margin: 2px;
+    width: 8ch;
+    text-align: center;
+    box-sizing: border-box;
+    border-radius: var(--radius-sm);
     font-size: 0.8em;
 }
 
 button.remove-btn:hover {
     background-color: #d91643;
-    border-color: #d91643;
+    transition: background-color 0.2s;
+}
+
+button.gift-btn:hover {
+    background-color: #3a408f;
+    transition: background-color 0.2s;
+}
+
+button.gift-btn.ungift-btn:hover {
+    background-color: #f2a900;
+    transition: background-color 0.2s;
+}
+
+#add-scenario-btn:hover,
+#add-item-form button[type="submit"]:hover {
+    background-color: #36b37e;
+    transition: background-color 0.2s;
+}
+
+#remove-scenario-btn:hover {
+    background-color: #d91643;
+    transition: background-color 0.2s;
 }
 
 #section-autocomplete {
@@ -150,6 +194,7 @@ button.remove-btn:hover {
     background-color: #1f1e20;
     border: 1px solid #f7f2ea;
     border-top: none;
+    border-radius: 0 0 var(--radius-sm) var(--radius-sm);
     z-index: 100;
 }
 
