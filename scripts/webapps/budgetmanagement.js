@@ -1,3 +1,28 @@
+var BUDGET_DEPLOY_VERSION = '2026-04-22-1';
+
+function clearBudgetStorageOnNewDeploy() {
+    var versionKey = 'budget-deploy-version';
+    var previousVersion = localStorage.getItem(versionKey);
+
+    if (previousVersion === BUDGET_DEPLOY_VERSION) {
+        return;
+    }
+
+    var keysToRemove = [];
+    for (var i = 0; i < localStorage.length; i++) {
+        var key = localStorage.key(i);
+        if (key === 'lists' || (key && key.indexOf('budget-') === 0)) {
+            keysToRemove.push(key);
+        }
+    }
+
+    for (var j = 0; j < keysToRemove.length; j++) {
+        localStorage.removeItem(keysToRemove[j]);
+    }
+
+    localStorage.setItem(versionKey, BUDGET_DEPLOY_VERSION);
+}
+
 function getLists() {
     return JSON.parse(localStorage.getItem('lists')) || ['A', 'B'];
 }
@@ -327,5 +352,6 @@ sectionInput.addEventListener('blur', function() {
     sectionDropdown.style.display = 'none';
 });
 
+clearBudgetStorageOnNewDeploy();
 renderScenarioDropdown();
 renderTables();
