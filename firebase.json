@@ -54,6 +54,8 @@
       { "source": "/content-creation/", "destination": "/forms/subsections/contentcreation.html" },
       { "source": "/consumer-tech", "destination": "/forms/subsections/consumertech.html" },
       { "source": "/consumer-tech/", "destination": "/forms/subsections/consumertech.html" },
+      { "source": "/consumertech", "destination": "/forms/subsections/consumertech.html" },
+      { "source": "/consumertech/", "destination": "/forms/subsections/consumertech.html" },
       { "source": "/resume", "destination": "/forms/subsections/resume.html" },
       { "source": "/resume/", "destination": "/forms/subsections/resume.html" }
     ]
