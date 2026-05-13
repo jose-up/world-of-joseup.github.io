@@ -41,7 +41,7 @@
       { "source": "/subsections/codingprojects.html", "destination": "/forms/subsections/codingprojects.html" },
       { "source": "/subsections/contentcreation.html", "destination": "/forms/subsections/contentcreation.html" },
       { "source": "/subsections/resume.html", "destination": "/forms/subsections/resume.html" },
-      { "source": "/subsections/more.html", "destination": "/forms/subsections/more.html" },
+      { "source": "/subsections/consumertech.html", "destination": "/forms/subsections/consumertech.html" },
       { "source": "/subsections/webapps/budgetmanagement.html", "destination": "/forms/subsections/webapps/budgetmanagement.html" },
       { "source": "/budgetmanagement.html", "destination": "/forms/subsections/webapps/budgetmanagement.html" },
       { "source": "/coding-projects", "destination": "/forms/subsections/codingprojects.html" },
@@ -52,10 +52,10 @@
       { "source": "/budget-management-tool/", "destination": "/forms/subsections/webapps/budgetmanagement.html" },
       { "source": "/content-creation", "destination": "/forms/subsections/contentcreation.html" },
       { "source": "/content-creation/", "destination": "/forms/subsections/contentcreation.html" },
+      { "source": "/consumer-tech", "destination": "/forms/subsections/consumertech.html" },
+      { "source": "/consumer-tech/", "destination": "/forms/subsections/consumertech.html" },
       { "source": "/resume", "destination": "/forms/subsections/resume.html" },
-      { "source": "/resume/", "destination": "/forms/subsections/resume.html" },
-      { "source": "/more", "destination": "/forms/subsections/more.html" },
-      { "source": "/more/", "destination": "/forms/subsections/more.html" }
+      { "source": "/resume/", "destination": "/forms/subsections/resume.html" }
     ]
   }
 }
