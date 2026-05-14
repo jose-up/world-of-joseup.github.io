@@ -67,7 +67,3 @@ node_modules/
 
 # dataconnect generated files
 .dataconnect
-
-# Temporary ignore for content creation
-./forms/subsections/contentcreation.html
-./styles/subsections/contentcreation.css
