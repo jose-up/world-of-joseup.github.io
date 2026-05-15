@@ -163,7 +163,6 @@ body {
 
 .content-type-title {
   display: inline-block;
-  text-align: left;
   background-color: #5b3996;
   border-radius: 10px;
   border-color: #07030e;
@@ -177,9 +176,10 @@ body {
 
 .featured-content-section {
   display: flex;
-  flex-direction: row;
+  justify-content: center;
   align-items: center;
-  gap: 48px;
+  flex-direction: row;
+  gap: 36px;
   padding: 24px;
   margin: 0 auto;
 }
