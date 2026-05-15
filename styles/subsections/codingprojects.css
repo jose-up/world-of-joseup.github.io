@@ -1,9 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&family=Nabla&display=swap');
 
 :root, body{
     color: #f7f2ea;
     background-color: #1f1e20;
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: "Atkinson Hyperlegible Mono", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
 }
 
 .intro-box{
@@ -12,10 +14,6 @@
     padding: 20px 28px;
     margin-bottom: 32px;
     text-align: center;
-}
-
-.project-note{
-    color: #11b849;
 }
 
 .project-section{
@@ -30,7 +28,6 @@
 }
 
 .single-project{
-    background-color: #1f1f1f;
     padding: 20px;
     font-size: 14px;
     width: 100%;
@@ -65,18 +62,3 @@
     flex: 1;
     min-width: 0;
 }
-
-/* WIP */
-/* .project-media{
-    width: 100%;
-    max-width: 640px;
-}
-
-.project-media video,
-.project-media img,
-.project-media iframe{
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    display: block;
-} */

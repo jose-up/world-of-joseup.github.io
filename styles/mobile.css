@@ -1,0 +1,29 @@
+@media (max-width: 900px) {
+  .introduction {
+    flex-direction: column;
+  }
+  
+  .featured-photo-wrap {
+    width: min(720px, 90vw);
+  }
+}
+
+.project-media{
+    width: 100%;
+    max-width: 640px;
+}
+
+.project-media video,
+.project-media img,
+.project-media iframe{
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+}
+
+@media (max-width: 1100px) {
+        :root {
+                --header-nudge: 0px;
+        }
+}

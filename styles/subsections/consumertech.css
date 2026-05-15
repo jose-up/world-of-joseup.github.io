@@ -1,4 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap');
+
 :root{
-    color: #f7f2ea;
-    background-color: #1f1e20;
+    color: #422e0c;
+    background-color: #ad894e;
+    font-family: "Google Sans Flex", sans-serif;
+}
+
+.project-text{
+    flex: 1;
+    min-width: 0;
+}
+
+h1 {
+    text-align: center;
+}
+
+.rant-body{
+    margin-top: 10px;
+    border-radius: 10px;
+    color: #362609;
+    background-color: #856533;
+    padding: 10px;
+}
+
+.section-divider{
+    border: none;
+    border-top: 2px solid #422e0c;;
+    margin: 32px 0;
+    width: 100%;
 }

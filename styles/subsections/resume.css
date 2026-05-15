@@ -1,6 +1,6 @@
 :root{
     color: black;
-    background-color: #800000;
+    background-color: #1f1e20;;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   --resume-view-height: min(calc(100vh - 120px), 1096px);
   --panel-outer-width: min(96vw, 900px);
@@ -114,7 +114,7 @@ h1{
   margin: 0 calc(-1.1rem + var(--business-card-side-gap)) calc(-1.1rem + var(--business-card-bottom-gap));
   display: grid;
   grid-template-columns: minmax(280px, 360px) minmax(0, 1fr);
-  grid-template-rows: minmax(240px, 1fr) minmax(320px, 1.2fr);
+  grid-template-rows: minmax(400px, 1.5fr) minmax(320px, 1fr);
   align-items: stretch;
   gap: var(--embed-row-gap);
 }
@@ -128,6 +128,51 @@ h1{
   height: 100%;
   overflow: hidden;
   border-radius: 12px;
+  flex-direction: column;
+}
+
+.reel-embed {
+  background: #FFF;
+  border: 0;
+  border-radius: 3px;
+  box-shadow: 0 0 1px 0 rgba(0,0,0,0.5), 0 1px 10px 0 rgba(0,0,0,0.15);
+  margin: 1px;
+  max-width: 540px;
+  min-width: 326px;
+  padding: 0;
+  width: 99.375%;
+  width: -webkit-calc(100% - 2px);
+  width: calc(100% - 2px);
+  border-radius: 20px;
+}
+
+.instagram-media {
+  margin: 0 auto;
+  max-width: 540px;
+  height: 450px;
+}
+
+.instagram-media p {
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  line-height: 17px;
+  margin: 0;
+  padding: 8px 0 7px;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.instagram-media p a {
+  color: #c9c8cd;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 17px;
+  text-decoration: none;
 }
 
 .rolling-info {
@@ -166,16 +211,7 @@ h1{
   width: 100%;
   height: 100%;
   border: 0;
-  border-radius: 12px;
-  min-width: 0;
-}
-
-
-.snow-photo {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
   border-radius: 10px;
+  min-width: 0;
 }
 
