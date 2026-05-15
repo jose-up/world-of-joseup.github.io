@@ -162,16 +162,21 @@ body {
 }
 
 .content-type-title {
+  display: inline-block;
   text-align: left;
-  color: #ffffff;
+  background-color: #5b3996;
+  border-radius: 10px;
+  border-color: #07030e;
+  border: 5px solid;
   font-family: 'Nabla', sans-serif;
+  font-palette: --title-style;
   font-size: 36px;
-  margin: -24px 0 0 12px;
+  margin: 12px 12px;
+  padding: 10px;
 }
 
 .featured-content-section {
   display: flex;
-  background-color: #c9819c69;
   flex-direction: row;
   align-items: center;
   gap: 48px;
@@ -187,8 +192,19 @@ body {
 
 .content-description {
   text-align: center;
-  background-color: #c97e95;
+  background-color: #679cc7;
+  color: #e2f1fd;
   padding: 40px;
   border-radius: 20px;
   max-width: 520px;
+}
+
+.section-divider{
+    align-items: center;
+    border: none;
+    border-top: 2px solid #e2f1fd;
+}
+
+.all-content{
+  background-color: #4e80a86b;
 }
