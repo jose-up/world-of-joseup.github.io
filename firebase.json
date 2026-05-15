@@ -25,7 +25,7 @@
       { "source": "/coding-projects", "destination": "/forms/subsections/codingprojects.html" },
       { "source": "/content-creation", "destination": "/forms/subsections/contentcreation.html" },
       { "source": "/tech-rants", "destination": "/forms/subsections/consumertech.html" },
-      { "source": "/budget-management-tool", "destination": "/forms/subsections/webapps/budgetmanagement.html" }
+      { "source": "/coding-projects/budget-management-tool", "destination": "/forms/subsections/webapps/budgetmanagement.html" }
     ]
   }
 }
