@@ -1,8 +1,21 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  -webkit-text-size-adjust: 100%;
+}
+
 @media (max-width: 1600px) {
   .resume-layout {
     flex-direction: column;
     align-items: center;
-    flex-wrap: wrap;
+    width: 100%;
+    padding: 20px;
   }
 
   .resume-left, 
@@ -13,65 +26,84 @@
 }
 
 @media (max-width: 950px) {
-  .introduction {
+  .introduction,
+  .featured-content-section,
+  .intro-wrapper {
     flex-direction: column;
     align-items: center;
+    gap: 25px;
+    width: 100%;
+    padding: 15px;
+  }
+
+  .secondary-section,
+  .featured-section,
+  .intro-paragraph,
+  .life-at-rose,
+  .content-description,
+  .intro-section {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 20px !important;
+    margin: 0 !important;
+    flex: none !important;
+  }
+
+  .reels-scroller {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
     gap: 15px;
+    padding: 10px 20px 20px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .reels-scroller > * {
+    flex: 0 0 300px;
+    max-width: 300px;
   }
 
   .social-embed-row {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    margin: 10px 0;
     gap: 20px;
   }
 
   .business-card-wrap {
-    grid-row: auto;
-    grid-column: auto;
     width: 100%;
-    aspect-ratio: 1 / 1.4;
+    height: 500px;
+    overflow: hidden;
   }
 
-  .rolling-info {
-    grid-column: auto;
-    height: 450px; 
+  .business-card {
+    transform: scale(0.9);
+    transform-origin: top center;
+    width: 100%;
+    height: 100%;
   }
 
   .resume-left-card, 
   .resume {
     width: 100%;
     height: auto;
-    min-height: 700px;
+    min-height: 500px;
   }
 
-  .featured-content-section {
-    flex-direction: row;
-    overflow-x: auto;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    width: 100%;
-    gap: 20px;
-    padding-bottom: 15px;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .featured-content-section > * {
-    flex: 0 0 85%;
-    white-space: normal;
-  }
-
-  .intro-section, 
-  .intro-section:last-child {
-    width: 100%;
-    flex: 1 1 100%;
+  .featured-photo-wrap,
+  .intro-image {
+    width: 100% !important;
+    max-width: 100% !important;
   }
 }
 
 @media (max-width: 600px) {
   #subsections {
     grid-template-columns: 1fr;
+    width: 100%;
   }
 
   .title {
@@ -79,12 +111,9 @@
   }
 
   .spotify-embed, 
-  .instagram-media {
-    width: 100%;
-  }
-
-  .resume-left-card, 
-  .resume {
-    min-height: 500px;
+  .instagram-media,
+  .reel-embed {
+    width: 100% !important;
+    min-width: 100% !important;
   }
 }
