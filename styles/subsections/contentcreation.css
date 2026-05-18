@@ -3,37 +3,37 @@
 @import url("https://use.typekit.net/sit3uyd.css");
 
 :root {
-    color: #1c141d;
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 20px;
-    --page-width: min(96vw, 1400px);
+  color: #1c141d;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 20px;
+  --page-width: min(96vw, 1600px);
 }
 
 body {
-    margin: 0;
-    background-image: url("/assets/images/contentcreation.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    min-height: 100vh;
+  margin: 0;
+  background-image: url("/assets/images/contentcreation.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
 }
 
 .content-creation {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 24px;
-    text-align: center;
-    padding: 24px;
-    box-sizing: border-box;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  text-align: center;
+  padding: 24px;
+  box-sizing: border-box;
 }
 
 .centered-photo {
-    display: block;
-    max-width: min(520px, 90vw);
-    height: auto;
+  display: block;
+  max-width: min(520px, 90vw);
+  height: auto;
 }
 
 .introduction {
@@ -44,8 +44,7 @@ body {
   gap: 24px;
   padding: 24px;
   width: var(--page-width);
-  margin: 0 auto;
-  margin-bottom: 50px;
+  margin: 0 auto 50px;
   box-sizing: border-box;
 }
 
@@ -53,14 +52,13 @@ body {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  flex: 1;
-  max-width: 520px;
+  flex: 0 0 520px;
 }
 
 .featured-photo-wrap {
   overflow: hidden;
   border-radius: 12px;
-  width: min(520px, 45vw);
+  width: 520px;
   flex-shrink: 0;
 }
 
@@ -92,7 +90,6 @@ body {
   height: auto;
   border-radius: 10px;
   object-fit: contain;
-  margin-left: 13px;
 }
 
 .intro-paragraph {
@@ -104,7 +101,6 @@ body {
   border-radius: 10px;
   padding: 1.5rem 2rem;
   box-sizing: border-box;
-  align-items: center;
 }
 
 .secondary-section {
@@ -112,99 +108,81 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 12px;
-  flex: 1;
+  flex: 0 0 450px;
   justify-content: center;
-  max-width: 600px;
 }
 
-.reel-embed {
-  background:#FFF;
-  border:0;
-  border-radius:3px;
-  box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);
-  margin: 1px;
-  max-width:540px;
-  min-width:326px;
-  padding:0;
-  width:99.375%;
-  width:-webkit-calc(100% - 2px);
-  width:calc(100% - 2px);
-  border-radius: 20px;
+.reels-scroller {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  justify-content: center;
+  gap: 20px;
+  flex: 1;
+  padding: 10px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.reels-scroller::-webkit-scrollbar {
+  display: none;
 }
 
 .instagram-media {
-  margin: 0 auto;
-  max-width: 540px;
-  height: 700px;
-}
-
-.instagram-media p {
-  color: #ffffff;
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-  line-height: 17px;
+  flex: 0 0 350px;
+  max-width: 350px;
+  height: 600px;
   margin: 0;
-  padding: 8px 0 7px;
-  text-align: center;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.instagram-media p a {
-  color: #c9c8cd;
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: normal;
-  line-height: 17px;
-  text-decoration: none;
 }
 
 .content-type-title {
   display: inline-block;
   background-color: #5b3996;
   border-radius: 10px;
-  border-color: #07030e;
-  border: 5px solid;
+  border: 5px solid #07030e;
   font-family: 'Nabla', sans-serif;
-  font-palette: --title-style;
   font-size: 36px;
-  margin: 12px 12px;
+  margin: 20px 0 20px 40px;
   padding: 10px;
 }
 
 .featured-content-section {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: row;
-  gap: 36px;
-  padding: 24px;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 40px;
+  width: 100%;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 
-.life-at-rose{
+.life-at-rose {
   background-color: #0a0a0a;
-  padding: 40px;
+  padding: 20px;
   border-radius: 20px;
+  width: 100%;
+  max-width: 400px;
 }
 
 .content-description {
   text-align: center;
   background-color: #679cc7;
   color: #e2f1fd;
-  padding: 40px;
+  padding: 24px;
   border-radius: 20px;
-  max-width: 520px;
+  width: 100%;
 }
 
-.section-divider{
-    align-items: center;
-    border: none;
-    border-top: 2px solid #e2f1fd;
+.section-divider {
+  border: none;
+  border-top: 2px solid #e2f1fd;
+  margin: 40px 0;
 }
 
-.all-content{
+.all-content {
   background-color: #4e80a86b;
+  width: 100%;
 }

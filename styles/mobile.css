@@ -25,15 +25,32 @@ html, body {
   }
 }
 
+@media (max-width: 1100px) {
+  .featured-content-section {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .secondary-section {
+    flex: none;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .reels-scroller {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    padding: 20px;
+    justify-content: flex-start;
+  }
+}
+
 @media (max-width: 950px) {
-  .introduction,
-  .featured-content-section,
-  .intro-wrapper {
+  .introduction {
     flex-direction: column;
     align-items: center;
     gap: 25px;
     width: 100%;
-    padding: 15px;
   }
 
   .secondary-section,
@@ -46,24 +63,25 @@ html, body {
     max-width: 100% !important;
     padding: 20px !important;
     margin: 0 !important;
-    flex: none !important;
+    text-align: center;
   }
 
   .reels-scroller {
-    display: flex;
-    flex-direction: row;
-    overflow-x: auto;
     flex-wrap: nowrap;
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
-    gap: 15px;
-    padding: 10px 20px 20px;
+    overflow-x: auto;
+    justify-content: flex-start;
     -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .reels-scroller::-webkit-scrollbar {
+    display: none;
   }
 
   .reels-scroller > * {
-    flex: 0 0 300px;
-    max-width: 300px;
+    flex: 0 0 320px;
+    max-width: 320px;
+    min-width: 320px;
   }
 
   .social-embed-row {
@@ -97,6 +115,7 @@ html, body {
   .intro-image {
     width: 100% !important;
     max-width: 100% !important;
+    margin: 0 !important;
   }
 }
 
