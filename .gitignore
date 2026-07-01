@@ -61,3 +61,5 @@ node_modules/
 # dataconnect generated files
 .dataconnect
 
+# Production
+dist
