@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Budget Management Tool</title>
+        <link rel="icon" type="image/svg+xml" href="">
+        <link rel="stylesheet" href="../../src/styles/coding-projects/web-apps/budgetmanagement.css"/>
+        <script src="../../src/scripts/coding-projects/web-apps/budgetmanagement.js"></script>
+    </head>
+    <body>
+        <h1>Manage Your Money!</h1>
+
+        <section id="list-section">
+            <h2>Lists</h2>
+            <div id="list-controls">
+                <label for="list-select">Active List: </label>
+                <select id="list-select"></select>
+                <button id="remove-list-btn">Remove List</button>
+            </div>
+            <div id="add-list-controls">
+                <h3>Add List</h3>
+                <label for="new-list-name">Name: </label>
+                <input type="text" id="new-list-name" placeholder="List name" autocomplete="off">
+                <button id="add-list-btn">Add List</button>
+            </div>
+        </section>
+
+        <section id="add-item-section">
+            <h2>Add Item</h2>
+            <form id="add-item-form">
+                <div id="item-grid">
+                    <label>Name: <input type="text" id="item-name" autocomplete="off"></label>
+                    <label>Link: <input type="text" id="item-link" autocomplete="off"></label>
+                    <label>Price: <input type="number" id="item-price" step="0.01" min="0" autocomplete="off"></label>
+                    <label>Section:
+                        <div id="section-autocomplete">
+                            <input type="text" id="item-section" autocomplete="off">
+                            <div id="section-dropdown"></div>
+                        </div>
+                    </label>
+                </div>
+                <button type="submit">Add Item</button>
+            </form>
+        </section>
+
+        <div id="tables-container"></div>
+    </body>
+</html>
