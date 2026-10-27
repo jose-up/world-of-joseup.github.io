@@ -1,13 +1,24 @@
+// Colors
+$primary-color: #2B2B38;
+$secondary-color: #1d2029;
+$accent-color-1: #C8102E;
+$accent-color-2: #002F6C;
+$bg-color: #12111a;
+$text-on-primary: #F7F2EA;
+$line-color: #8F672B;
+
+// Components
 .title {
     text-align: center;
     font-family: 'Momo Trust Display', sans-serif;
     font-size: 100px;
+    width: 100%;
+    background-color: $accent-color-1;
 }
 
-.navigation {
-  display: flex;
-  font-family: 'Unica One', sans-serif;
-  justify-content: center;
-  align-items: center;
-  gap: 1.5rem;
+.letterboxd {
+    font-family: 'Funnel Display', sans-serif;
+    border: 0;
+    background: $bg-color;
+    border-radius: 12px;
 }

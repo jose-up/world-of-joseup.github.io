@@ -178,3 +178,65 @@ select {
     outline-offset: 2px;
   }
 }
+
+// Elements
+.global-nav {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Unica One', sans-serif;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding-block: 1.5rem;
+}
+
+.nav-links,
+.icon-bars-row {
+  display: flex;
+  grid-template-columns: repeat(3, 250px);
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  gap: 1.2rem;
+}
+
+.nav-links .btn {
+  width: 100%;
+  height: 54px;
+  justify-content: center;
+  // white-space: nowrap;
+  text-align: center;
+}
+
+.icon-bar {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background-color: $primary-color;
+  padding: 0.6rem 1.25rem;
+  border-radius: $radius-sm;
+  height: 48px;
+
+  a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 0;
+  }
+}
+
+.nav-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  display: block;
+  transition: transform $transition-fast, opacity $transition-fast;
+
+  &:hover {
+    transform: translateY(-2px);
+    opacity: 0.8;
+  }
+}

@@ -5,11 +5,6 @@ export default function HomeBase() {
   return (
     <main className="container">
       <h1 className={styles.title}>This is Joseph Zeru.</h1>
-      <br></br>
-      <nav className={styles.navigation}>
-        <Link to="/comp-sci" className="btn">Computer Science & Math</Link>
-        <Link to="/social-media" className="btn">Social Media & Content</Link>
-      </nav>
       <br/>
       <iframe data-testid="embed-iframe"
         style={{ borderRadius: '12px' }}
