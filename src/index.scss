@@ -1,0 +1,180 @@
+/* Variables */
+
+// Colors
+$primary-color: #2B2B38;
+$secondary-color: #1d2029;
+$accent-color-1: #C8102E;
+$accent-color-2: #002F6C;
+$bg-color: #12111a;
+$text-on-primary: #F7F2EA;
+$line-color: #8F672B;
+
+// Formatting
+$font-size-base: 1rem;
+$container-max-width: 1200px;
+$spacing-xs: 0.5rem;
+$spacing-sm: 1rem;
+$spacing-md: 2rem;
+$spacing-lg: 3rem;
+$radius-sm: 4px;
+
+// Transitions
+$transition-fast: 0.2s ease;
+$transition-normal: 0.3s ease;
+
+/* Fonts */
+
+@font-face {
+  font-family: 'Red Hat Display';
+  src: url('./assets/fonts/red-hat-display/RedHatDisplay-VariableFont_wght.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Funnel Display';
+  src: url('./assets/fonts/funnel-display/FunnelDisplay-VariableFont_wght.ttf') format('truetype');
+  font-weight: 300 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Momo Trust Display';
+  src: url('./assets/fonts/momo-trust-display/MomoTrustDisplay-Regular.ttf') format('truetype');
+  font-weight: 1000;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poiret One';
+  src: url('./assets/fonts/poiret-one/PoiretOne-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Unica One';
+  src: url('./assets/fonts/unica-one/UnicaOne-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Buda';
+  src: url('./assets/fonts/buda/Buda-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Styles */
+
+// CSS Reset
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+// Default Styles
+html {
+  font-size: $font-size-base;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+
+  body {
+    min-height: 100vh;
+    line-height: 1.6;
+    color: $text-on-primary;
+    background-color: $bg-color;
+    overflow-x: hidden;
+  }
+}
+
+//Typography & Linkis
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+    overflow-wrap: break-word;
+}
+
+a {
+    color: $secondary-color;
+    text-decoration: none;
+    transition: color $transition-fast;
+
+    &:hover,
+    &:focus-visible {
+        text-decoration: underline;
+    }
+}
+
+// Media
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+// Form Elements
+input,
+button,
+textarea,
+select {
+    font: inherit;
+    color: inherit;
+}
+
+// Layout Helpers
+.container {
+    width: min(100% - ($spacing-sm*2), $container-max-width);
+    margin-inline: auto;
+}
+
+.section {
+    padding-block: $spacing-lg;
+
+    &__title {
+        font-size: clamp(1.5rem, 3vw, 2rem);
+        margin-bottom: $spacing-md;
+    }
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-xs;
+  padding: $spacing-sm $spacing-md;
+  background-color: $primary-color;
+  color: $text-on-primary;
+  border: none;
+  border-radius: $radius-sm;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity $transition-fast, transform $transition-fast;
+
+  &:hover {
+    opacity: 0.9;
+    text-decoration: none;
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $secondary-color;
+    outline-offset: 2px;
+  }
+}
