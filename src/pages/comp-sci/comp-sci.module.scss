@@ -1,0 +1,41 @@
+/* Variables from index.scss */
+
+// Colors
+$primary-color: #2B2B38;
+$secondary-color: #1d2029;
+$accent-color-1: #C8102E;
+$accent-color-2: #002F6C;
+$accent-color-2-1: #063F8A;
+$bg-color: #12111a;
+$text-on-primary: #F7F2EA;
+$line-color: #8F672B;
+
+/* New Variables */
+
+// Colors
+$rose-hulman-red: #800000;
+$text-on-primary: #F7F2EA;
+
+
+// Components
+.title {
+    text-align: center;
+    font-family: 'Buda', font-family;
+    font-size: 75px;
+}
+
+photo-element {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    font-family: "Red Hat Display";
+    background-color: $rose-hulman-red;
+    color: $text-on-primary;
+    border-radius: 12px;
+    text-size-adjust: 20vw;
+}
+
+.resume {
+    display: flex;
+    height: 100%;
+}

@@ -10,19 +10,20 @@ import './index.scss';
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <HashRouter>
+      <link rel="icon" href="./src/assets/etc/favicon.ico" sizes="32x32"/>
       <nav className="global-nav">
         <div className="icon-bars-row">
           <div className="icon-bar btn">
             <a href='https://x.com/joseup_bmp' target="_blank" rel="noreferrer">
               <img src="src/assets/icon-links/coding/twitter.svg" alt="Twitter" className='nav-icon' /></a>
-            <a href='https://github.com/jose-up' target="_blank" rel="noreferrer">
-              <img src="src/assets/icon-links/coding/github.svg" alt="GitHub" className='nav-icon'/></a>
+            <a href='https://www.linkedin.com/in/joseph-zeru/' target="_blank" rel="noreferrer">
+              <img src="src/assets/icon-links/coding/linkedin.svg" alt="LinkedIn" className='nav-icon'/></a>
             <a href='https://www.kaggle.com/josephzeru' target="_blank" rel="noreferrer">
               <img src="src/assets/icon-links/coding/kaggle.svg" alt="Kaggle" className='nav-icon'/></a>
+            <a href='https://github.com/jose-up' target="_blank" rel="noreferrer">
+              <img src="src/assets/icon-links/coding/github.svg" alt="GitHub" className='nav-icon'/></a>
           </div>
           <div className="icon-bar btn">
-            <a href='https://www.linkedin.com/in/joseph-zeru/' target="_blank" rel="noreferrer">
-              <img src="src/assets/icon-links/linkedin.svg" alt="LinkedIn" className='nav-icon'/></a>
             <a href='https://open.spotify.com/user/3wu8qv0nazznc8hj6bbp942n0?si=2353b3fbc54b49c0' target="_blank" rel="noreferrer">
               <img src="src/assets/icon-links/spotify.svg" alt="Spotify" className='nav-icon'/></a>
             <a href='https://www.pinterest.com/joseupdesignsstuff/' target="_blank" rel="noreferrer">
@@ -35,13 +36,13 @@ createRoot(document.getElementById('root')!).render(
               <img src="src/assets/icon-links/social-media/threads.svg" alt="Threads" className='nav-icon' /></a>
             <a href='https://www.linkedin.com/in/joseph-zeru/' target="_blank" rel="noreferrer">
               <img src="src/assets/icon-links/social-media/instagram.svg" alt="Instagram" className='nav-icon'/></a>
-            <a href='https://open.spotify.com/user/3wu8qv0nazznc8hj6bbp942n0?si=2353b3fbc54b49c0' target="_blank" rel="noreferrer">
+            <a href='https://https://letterboxd.com/joseup_txt' target="_blank" rel="noreferrer">
               <img src="src/assets/icon-links/social-media/letterboxd.svg" alt="Letterboxd" className='nav-icon'/></a>
           </div>
         </div>
         <div className="nav-links">
+          <Link to="/" className="btn">Main Page</Link>
           <Link to="/comp-sci" className="btn">ML/AI Experience</Link>
-          <Link to="/home-base" className="btn">Main Page</Link>
           <Link to="/social-media" className="btn">Social Media and Content Creation</Link>
         </div>
       </nav>

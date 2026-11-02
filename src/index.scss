@@ -5,13 +5,14 @@ $primary-color: #2B2B38;
 $secondary-color: #1d2029;
 $accent-color-1: #C8102E;
 $accent-color-2: #002F6C;
+$accent-color-2-1: #063F8A;
 $bg-color: #12111a;
 $text-on-primary: #F7F2EA;
 $line-color: #8F672B;
 
 // Formatting
 $font-size-base: 1rem;
-$container-max-width: 1200px;
+$container-max-width: 90vw;
 $spacing-xs: 0.5rem;
 $spacing-sm: 1rem;
 $spacing-md: 2rem;
@@ -73,7 +74,11 @@ $transition-normal: 0.3s ease;
 }
 
 /* Styles */
+// Global
+html {
+    scroll-behavior: smooth;
 
+}
 // CSS Reset
 *,
 *::before,
@@ -156,7 +161,7 @@ select {
   justify-content: center;
   gap: $spacing-xs;
   padding: $spacing-sm $spacing-md;
-  background-color: $primary-color;
+  background-color: $accent-color-2-1;
   color: $text-on-primary;
   border: none;
   border-radius: $radius-sm;
@@ -174,20 +179,26 @@ select {
   }
 
   &:focus-visible {
-    outline: 2px solid $secondary-color;
+    outline: 2px solid $accent-color-2;
     outline-offset: 2px;
   }
 }
 
 // Elements
 .global-nav {
-  display: flex;
-  flex-direction: column;
-  font-family: 'Unica One', sans-serif;
-  align-items: center;
-  justify-content: center;
-  gap: 1.5rem;
-  padding-block: 1.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    background-color: $accent-color-2;
+
+    display: flex;
+    flex-direction: row;
+    font-family: 'Unica One', sans-serif;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    padding-block: 1.5rem;
 }
 
 .nav-links,
@@ -215,7 +226,7 @@ select {
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  background-color: $primary-color;
+  background-color: $accent-color-2-1;
   padding: 0.6rem 1.25rem;
   border-radius: $radius-sm;
   height: 48px;
