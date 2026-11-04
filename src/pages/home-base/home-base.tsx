@@ -25,14 +25,10 @@ export default function HomeBase() {
         <iframe className={styles.spotify}
           src="https://open.spotify.com/embed/playlist/6OzRIfmaiGhbjMQDS2joFv?utm_source=generator&si=39aeab996c5f4fdb"
           allowFullScreen
-          allow="autoplay; clipboard-write;
-                encrypted-media; fullscreen;
-                picture-in-picture"
-          loading="lazy"/>
+          allow="autoplay; clipboard-write;"/>
         <iframe className={styles.linkedin}
             src="https://www.linkedin.com/embed/feed/update/urn:li:share:7492569680600215552?collapsed=1"
-            title="LinkedIn Post"
-          loading="lazy"/>
+            title="LinkedIn Post"/>
       </div>
       <br/>
       <iframe className={styles.notion}

@@ -1,6 +1,3 @@
-/* Variables */
-
-// Colors
 $primary-color: #2B2B38;
 $secondary-color: #1d2029;
 $accent-color-1: #C8102E;
@@ -10,7 +7,6 @@ $bg-color: #12111a;
 $text-on-primary: #F7F2EA;
 $line-color: #8F672B;
 
-// Formatting
 $font-size-base: 1rem;
 $container-max-width: 90vw;
 $spacing-xs: 0.5rem;
@@ -19,11 +15,8 @@ $spacing-md: 2rem;
 $spacing-lg: 3rem;
 $radius-sm: 4px;
 
-// Transitions
 $transition-fast: 0.2s ease;
 $transition-normal: 0.3s ease;
-
-/* Fonts */
 
 @font-face {
   font-family: 'Red Hat Display';
@@ -73,13 +66,11 @@ $transition-normal: 0.3s ease;
   font-display: swap;
 }
 
-/* Styles */
-// Global
 html {
     scroll-behavior: smooth;
 
 }
-// CSS Reset
+
 *,
 *::before,
 *::after {
@@ -103,7 +94,6 @@ html {
   }
 }
 
-//Typography & Linkis
 h1, h2, h3, h4, h5, h6 {
     line-height: 1.2;
     overflow-wrap: break-word;
@@ -120,7 +110,6 @@ a {
     }
 }
 
-// Media
 img,
 picture,
 video,
@@ -131,7 +120,6 @@ svg {
     height: auto;
 }
 
-// Form Elements
 input,
 button,
 textarea,
@@ -140,7 +128,6 @@ select {
     color: inherit;
 }
 
-// Layout Helpers
 .container {
     width: min(100% - ($spacing-sm*2), $container-max-width);
     margin-inline: auto;
@@ -153,101 +140,4 @@ select {
         font-size: clamp(1.5rem, 3vw, 2rem);
         margin-bottom: $spacing-md;
     }
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: $spacing-xs;
-  padding: $spacing-sm $spacing-md;
-  background-color: $accent-color-2-1;
-  color: $text-on-primary;
-  border: none;
-  border-radius: $radius-sm;
-  cursor: pointer;
-  text-decoration: none;
-  transition: opacity $transition-fast, transform $transition-fast;
-
-  &:hover {
-    opacity: 0.9;
-    text-decoration: none;
-  }
-
-  &:active {
-    transform: translateY(1px);
-  }
-
-  &:focus-visible {
-    outline: 2px solid $accent-color-2;
-    outline-offset: 2px;
-  }
-}
-
-// Elements
-.global-nav {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    width: 100%;
-    background-color: $accent-color-2;
-
-    display: flex;
-    flex-direction: row;
-    font-family: 'Unica One', sans-serif;
-    align-items: center;
-    justify-content: center;
-    gap: 1.5rem;
-    padding-block: 1.5rem;
-}
-
-.nav-links,
-.icon-bars-row {
-  display: flex;
-  grid-template-columns: repeat(3, 250px);
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  justify-items: center;
-  gap: 1.2rem;
-}
-
-.nav-links .btn {
-  width: 100%;
-  height: 54px;
-  justify-content: center;
-  // white-space: nowrap;
-  text-align: center;
-}
-
-.icon-bar {
-  display: inline-flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  background-color: $accent-color-2-1;
-  padding: 0.6rem 1.25rem;
-  border-radius: $radius-sm;
-  height: 48px;
-
-  a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      line-height: 0;
-  }
-}
-
-.nav-icon {
-  width: 24px;
-  height: 24px;
-  object-fit: contain;
-  display: block;
-  transition: transform $transition-fast, opacity $transition-fast;
-
-  &:hover {
-    transform: translateY(-2px);
-    opacity: 0.8;
-  }
 }

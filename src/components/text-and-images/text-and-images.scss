@@ -1,0 +1,15 @@
+.text-and-images {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  gap: 1.5rem;
+  border-radius: 12px;
+}
+
+.text-and-images__content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
