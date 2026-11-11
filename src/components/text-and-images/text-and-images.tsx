@@ -16,6 +16,7 @@ export default function TextAndImages({
         src={image}
         className={"".trim()}
       />
+      <p>{info}</p>
       <div className="test"></div>
     </div>
   );

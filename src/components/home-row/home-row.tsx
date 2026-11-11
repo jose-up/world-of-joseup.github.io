@@ -12,15 +12,15 @@ const ROUTE_ICONS: Record<string, LinkedIcon[]> = {
     { iconName: 'binaryheart', URL: 'https://binaryheart.org/rose-hulman' },
   ],
   '/social-media': [
-    { iconName: 'twitter', URL: 'https://x.com/joseup_bmp'},
-    { iconName: 'pinterest', URL: 'https://www.pinterest.com/joseupdesignsstuff/' },
+    { iconName: 'twitter', URL: 'https://x.com/joseup_bmp' },
     { iconName: 'instagram', URL: 'https://www.instagram.com/joseup.mov/' },
+    { iconName: 'pinterest', URL: 'https://www.pinterest.com/joseupdesignsstuff/' },
     { iconName: 'youtube', URL: 'https://www.youtube.com/@joseup.mp4' },
   ],
   default: [
     { iconName: 'threads', URL: 'https://www.threads.net/@joseup_bmp' },
-    { iconName: 'reddit', URL: 'https://www.reddit.com/user/SpiderRedd' },
-    { iconName: 'spotify', URL: 'https://open.spotify.com/user/3wu8qv0nazznc8hj6bbp942n0?si=2353b3fbc54b49c0' },
+        { iconName: 'spotify', URL: 'https://open.spotify.com/user/3wu8qv0nazznc8hj6bbp942n0?si=2353b3fbc54b49c0' },
+    { iconName: 'reddit', URL: 'https://www.reddit.com/user/SpiderRedd' }
   ],
 };
 

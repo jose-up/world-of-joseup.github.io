@@ -25,16 +25,18 @@ export default function HomeBase() {
         <iframe className={styles.spotify}
           src="https://open.spotify.com/embed/playlist/6OzRIfmaiGhbjMQDS2joFv?utm_source=generator&si=39aeab996c5f4fdb"
           allowFullScreen
-          allow="autoplay; clipboard-write;"/>
+          allow="autoplay; clipboard-write;"
+          loading='lazy'/>
         <iframe className={styles.linkedin}
             src="https://www.linkedin.com/embed/feed/update/urn:li:share:7492569680600215552?collapsed=1"
-            title="LinkedIn Post"/>
+          title="LinkedIn Post"
+          loading='lazy'/>
       </div>
       <br/>
       <iframe className={styles.notion}
         src="https://worldofjoseup.notion.site/ebd//394411b52edd80539dfbc7eff65f4165"
         allowFullScreen
-        />
+        loading='lazy'/>
     </main>
   );
 }
