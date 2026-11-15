@@ -3,21 +3,33 @@ import './text-and-images.scss';
 
 export interface InformationContainer {
   image: string;
-  info: string;
+  alt?: string;
+  info?: ReactNode;
+  children?: ReactNode;
+  className?: string;
+  imageClassName?: string;
+  textClassName?: string;
 }
 
 export default function TextAndImages({
   image,
+  alt = '',
   info,
+  children,
+  className = '',
+  imageClassName = '',
+  textClassName = '',
 }: InformationContainer) {
   return (
-    <div className={"".trim()}>
+    <div className={`text-and-images ${className}`.trim()}>
       <img
         src={image}
-        className={"".trim()}
+        alt={alt}
+        className={`text-and-images__image ${imageClassName}`.trim()}
       />
-      <p>{info}</p>
-      <div className="test"></div>
+      <div className={`text-and-images__info ${textClassName}`.trim()}>
+        {info ?? children}
+      </div>
     </div>
   );
 }

@@ -19,8 +19,8 @@ const ROUTE_ICONS: Record<string, LinkedIcon[]> = {
   ],
   default: [
     { iconName: 'threads', URL: 'https://www.threads.net/@joseup_bmp' },
-        { iconName: 'spotify', URL: 'https://open.spotify.com/user/3wu8qv0nazznc8hj6bbp942n0?si=2353b3fbc54b49c0' },
-    { iconName: 'reddit', URL: 'https://www.reddit.com/user/SpiderRedd' }
+    { iconName: 'reddit', URL: 'https://www.reddit.com/user/SpiderRedd' },
+    { iconName: 'spotify', URL: 'https://open.spotify.com/user/3wu8qv0nazznc8hj6bbp942n0?si=2353b3fbc54b49c0' }
   ],
 };
 

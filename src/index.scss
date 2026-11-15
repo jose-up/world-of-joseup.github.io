@@ -141,3 +141,11 @@ select {
         margin-bottom: $spacing-md;
     }
 }
+
+.resume {
+  width: 100%;
+  max-width: 650px;
+  height: auto;
+  margin-inline: auto;
+  border-radius: 8px;
+}

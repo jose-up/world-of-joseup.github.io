@@ -13,4 +13,14 @@
   justify-content: center;
   gap: 1.5rem;
   padding-block: 1.5rem;
+
+  --icon-row-bg: #063F8A;
+
+  &[data-route='/comp-sci'] {
+    --icon-row-bg: #800000;
+  }
+
+  &[data-route='/social-media'] {
+    --icon-row-bg: #C8102E;
+  }
 }

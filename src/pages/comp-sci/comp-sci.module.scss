@@ -1,17 +1,3 @@
-/* Variables from index.scss */
-
-// Colors
-$primary-color: #2B2B38;
-$secondary-color: #1d2029;
-$accent-color-1: #C8102E;
-$accent-color-2: #002F6C;
-$accent-color-2-1: #063F8A;
-$bg-color: #12111a;
-$text-on-primary: #F7F2EA;
-$line-color: #8F672B;
-
-/* New Variables */
-
 // Colors
 $rose-hulman-red: #800000;
 $text-on-primary: #F7F2EA;
@@ -35,8 +21,17 @@ $text-on-primary: #F7F2EA;
     text-size-adjust: 20vw;
 }
 
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); // Or flex/grid matching HomeBase
+  gap: 1.5rem;
+  align-items: start;
+}
+
 .resume {
-    display: flex;
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  max-width: 550px; // Locks the visual width of the resume
+  height: auto;
+  justify-self: center;
+  border-radius: 8px;
 }
