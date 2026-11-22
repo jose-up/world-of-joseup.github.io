@@ -2,8 +2,6 @@
 $rose-hulman-red: #800000;
 $text-on-primary: #F7F2EA;
 
-
-// Components
 .title {
     text-align: center;
     font-family: 'Buda', font-family;
@@ -23,14 +21,14 @@ $text-on-primary: #F7F2EA;
 
 .container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); // Or flex/grid matching HomeBase
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   align-items: start;
 }
 
 .resume {
   width: 100%;
-  max-width: 550px; // Locks the visual width of the resume
+  max-width: 550px;
   height: auto;
   justify-self: center;
   border-radius: 8px;

@@ -1,5 +1,8 @@
 import styles from './home-base.module.scss';
-import { TextAndImages, Title } from '../../components';
+import {
+  TextAndImages, Title
+} from '../../components';
+import boopImg from '../../assets/photos/boop.webp';
 
 export default function HomeBase() {
   return (
@@ -8,10 +11,10 @@ export default function HomeBase() {
       <br />
       <div className={`container ${styles.container}`}>
         <TextAndImages
-          image='../../assets/photos/boop.webp'
+          image={boopImg}
           alt="Joseph being a goofy goober"
           className={styles.intro}
-          imageClassName={styles.myself}
+          font="'Funnel Display', sans-serif"
           info={
             <>
               <p>
@@ -30,7 +33,7 @@ export default function HomeBase() {
               <br />
               <ul>
                 <li>I cofounded BinaryHeart@RHIT!</li>
-                <li>I've being a cellist for 10 years!</li>
+                <li>I've been a cellist for 10 years!</li>
                 <li>I might be able to voice act if you ask nicely :)</li>
               </ul>
             </>

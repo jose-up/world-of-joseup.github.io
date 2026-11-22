@@ -30,23 +30,13 @@ $line-color: #8F672B;
 }
 
 .intro {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    grid-column: span 2;
-    background-color: $secondary-color;
-    font-family: 'Funnel Display', sans-serif;
-    padding: 1.5rem;
-    gap: 1.5rem;
-    border-radius: 12px;
-    text-size-adjust: 20vw;
+  grid-column: span 2;
+  background-color: $secondary-color;
+  padding: 1.5rem;
+  gap: 1.5rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
 }
-//
-// .intro {
-//     background-color: #1d2029;
-//     font-family: 'Funnel Display', sans-serif;
-// }
 
 .myself {
     border-color: $accent-color-1;
