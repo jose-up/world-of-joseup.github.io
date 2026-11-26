@@ -1,0 +1,78 @@
+@use '../../index.scss' as *;
+
+.title {
+  --title-font: 'Momo Trust Display', sans-serif;
+  --title-size: clamp(2.5rem, 6vw, 100px);
+  --title-bg: #{$accent-color-1};
+  --title-color: #{$text-on-primary};
+  padding-block: 0.75rem;
+}
+
+.pageStack {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding-block: 1.5rem 3rem;
+}
+
+.heroGrid {
+  --layout-cols-desktop: 2fr 1fr 1fr;
+  --layout-cols-tablet: 1fr 1fr;
+  --layout-align: stretch;
+}
+
+.intro {
+  --tai-bg: #{$secondary-color};
+  --tai-font: 'Funnel Display', sans-serif;
+  --tai-columns: minmax(0, 2fr) minmax(0, 3fr);
+  font-size: 0.9rem;
+
+  @media (max-width: $bp-tablet) {
+    grid-column: 1 / -1;
+  }
+}
+
+.spotifyCard {
+  --embed-card-bg: #{$spotify-green};
+  --pill-border: #{$text-on-primary};
+  --pill-dot: #{$text-on-primary};
+}
+
+.linkedinCard {
+  --embed-card-bg: #{$linkedin-blue};
+  --pill-border: #{$text-on-primary};
+  --pill-dot: #{$text-on-primary};
+}
+
+.notionCard {
+  --embed-card-bg: #{$secondary-color};
+  --pill-border: #{$text-on-primary};
+  --pill-dot: #{$text-on-primary};
+}
+
+.spotify,
+.linkedin {
+  width: 100%;
+  min-height: 360px;
+  height: 100%;
+  border-radius: 8px;
+  border: none;
+}
+
+.notionFrame {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.notion {
+  display: block;
+  width: 100%;
+  height: clamp(118rem, 152rem - 28vw, 135rem);
+  border: none;
+  overflow: hidden;
+
+  @media (max-width: $bp-foldable) {
+    height: 145rem;
+  }
+}

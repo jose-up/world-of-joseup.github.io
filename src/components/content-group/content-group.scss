@@ -1,0 +1,35 @@
+.content-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-block: 1.5rem;
+  border-top: 1px solid var(--group-divider, var(--color-line));
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  &__heading-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  &__title {
+    margin: 0;
+    font-family: var(--group-title-font, inherit);
+    font-size: 2rem;
+    letter-spacing: 0.04em;
+  }
+
+  &__tagline {
+    margin: 0;
+    font-family: var(--group-body-font, inherit);
+    opacity: 0.8;
+    max-width: 65ch;
+  }
+}

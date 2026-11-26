@@ -1,0 +1,54 @@
+.embed-card__link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+
+  &:hover,
+  &:focus-visible {
+    text-decoration: none;
+  }
+}
+
+.embed-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100%;
+  background-color: var(--embed-card-bg, var(--color-secondary));
+  padding: var(--embed-card-padding, 1.25rem);
+  border-radius: var(--embed-card-radius, 12px);
+  border: 1px solid var(--embed-card-border, rgba(247, 242, 234, 0.1));
+
+  &--interactive {
+    transition:
+      transform var(--duration-hover) var(--ease-expo),
+      border-color var(--duration-hover) var(--ease-expo);
+
+    &:hover {
+      transform: translateY(var(--lift-distance));
+      border-color: var(--embed-card-hover-border, var(--color-accent-2-1));
+    }
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  &__title {
+    font-family: var(--embed-card-title-font, 'Funnel Display', sans-serif);
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--color-text);
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+  }
+}

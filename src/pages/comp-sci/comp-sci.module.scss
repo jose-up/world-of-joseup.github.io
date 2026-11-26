@@ -1,0 +1,112 @@
+@use '../../index.scss' as *;
+
+.title {
+  --title-font: 'Buda', serif;
+  --title-size: clamp(2.25rem, 4.8vw, 75px);
+  padding-top: 1rem;
+}
+
+.pageStack {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding-block: 1.5rem 4rem;
+}
+
+.topSplit {
+  --layout-cols-desktop: repeat(2, minmax(0, 560px));
+  --layout-cols-tablet: 1fr;
+  --layout-gap: 2rem;
+  --layout-justify: center;
+}
+
+.resume {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.rightColumn {
+  width: 100%;
+  --layout-gap: 1.5rem;
+}
+
+.blurb {
+  --tai-bg: #{$rose-hulman-red};
+  --tai-font: 'Funnel Display', sans-serif;
+  --tai-columns: 165px 1fr;
+  --tai-gap: 1.5rem;
+  font-size: 0.92rem;
+}
+
+.githubCard {
+  --embed-card-bg: #{$secondary-color};
+  --embed-card-hover-border: #{$text-on-primary};
+  --pill-border: #{$text-on-primary};
+  --pill-dot: #{$text-on-primary};
+}
+
+.githubChart {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  background-color: $text-on-primary;
+  padding: 0.75rem;
+}
+
+.projectsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.sectionSubtitle {
+  --subtitle-size: clamp(1.75rem, 3vw, 2.5rem);
+  margin: 0;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.legendCompleted {
+  --pill-border: #{$progress-green};
+  --pill-color: #{$text-on-primary};
+  --pill-dot: #{$progress-green};
+}
+
+.legendProgress {
+  --pill-border: #{$progress-yellow};
+  --pill-color: #{$text-on-primary};
+  --pill-dot: #{$progress-yellow};
+}
+
+.legendPlanned {
+  --pill-border: #{$progress-red};
+  --pill-color: #{$text-on-primary};
+  --pill-dot: #{$progress-red};
+}
+
+.projectGrid {
+  --layout-min-card: 310px;
+  --layout-min-card-wide: 360px;
+  --layout-gap: 1.5rem;
+}
+
+.projectCard {
+  --card-bg: #{$secondary-color};
+  --status-completed-border: #{$progress-green};
+  --status-progress-border: #{$progress-yellow};
+  --status-planned-border: #{$progress-red};
+  font-family: 'Funnel Display', sans-serif;
+}

@@ -1,0 +1,70 @@
+@use '../../index.scss' as *;
+
+.page {
+  --group-title-font: 'Unica One', sans-serif;
+  --group-body-font: 'Red Hat Display', sans-serif;
+  --item-title-font: 'Unica One', sans-serif;
+  --item-body-font: 'Red Hat Display', sans-serif;
+}
+
+.title {
+  --title-font: 'Poiret One', sans-serif;
+  --title-size: clamp(2.5rem, 5.2vw, 84px);
+  letter-spacing: 0.05em;
+  padding-top: 1rem;
+}
+
+.pageStack {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  padding-block: 1.5rem 4rem;
+}
+
+.blurb {
+  --tai-bg: #{$insta-purple};
+  --tai-font: 'Red Hat Display', sans-serif;
+  --tai-columns: 220px 1fr;
+  --tai-gap: 1.75rem;
+  --tai-padding: 1.75rem;
+}
+
+.youtubeGroup {
+  --item-hover-border: #{$youtube-red};
+  :global(.content-item__embed) {
+    background-color: #ffffff;
+  }
+}
+
+.instagramGroup {
+  --item-hover-border: #{$insta-purple};
+
+  :global(.content-item__embed) {
+    background-color: #ffffff;
+  }
+}
+
+.substackGroup {
+  --item-hover-border: #{$substack-orange};
+  :global(.content-item__embed) {
+    background-color: #ffffff;
+  }
+}
+
+.itemCard {
+  --item-bg: #{$secondary-color};
+}
+
+.youtubeEmbed {
+  aspect-ratio: 16 / 9;
+  height: auto;
+}
+
+.instagramEmbed {
+  height: 460px;
+}
+
+.substackEmbed {
+  height: 320px;
+  background-color: $text-on-primary;
+}
