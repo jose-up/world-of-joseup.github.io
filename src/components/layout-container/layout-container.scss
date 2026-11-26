@@ -1,0 +1,31 @@
+.layout-container {
+  display: grid;
+  gap: var(--layout-gap, 1.5rem);
+  width: 100%;
+  align-items: var(--layout-align, start);
+  justify-content: var(--layout-justify, stretch);
+
+  &--vertical {
+    grid-template-columns: 1fr;
+  }
+
+  &--horizontal {
+    grid-template-columns: var(--layout-cols-desktop, repeat(2, minmax(0, 1fr)));
+
+    @media (max-width: 1024px) {
+      grid-template-columns: var(--layout-cols-tablet, 1fr);
+    }
+
+    @media (max-width: 720px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &--grid {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, var(--layout-min-card, 300px)), 1fr));
+
+    @media (min-width: 1920px) {
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, var(--layout-min-card-wide, 360px)), 1fr));
+    }
+  }
+}

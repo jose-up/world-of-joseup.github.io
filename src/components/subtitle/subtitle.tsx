@@ -1,22 +1,30 @@
-import type { ReactNode } from 'react';
+import type { CSSProperties, ReactNode } from 'react';
 import './subtitle.scss';
 
-export interface TitleProps {
+export interface SubtitleProps {
   text: ReactNode;
-  children: ReactNode;
-  className: string;
-  fontName: string;
+  className?: string;
+  font?: string;
+  fontSize?: string;
+  color?: string;
 }
 
-export default function Title({
+export default function Subtitle({
   text,
-  children,
   className = '',
-  fontName = ''
-}: TitleProps) {
+  font,
+  fontSize,
+  color,
+}: SubtitleProps) {
+  const inlineStyle: CSSProperties = {
+    ...(font && { fontFamily: font }),
+    ...(fontSize && { fontSize }),
+    ...(color && { color }),
+  };
+
   return (
-    <h2 className={`title ${className}`.trim()}>
-      {text ?? children}
+    <h2 className={`subtitle ${className}`.trim()} style={inlineStyle}>
+      {text}
     </h2>
   );
 }

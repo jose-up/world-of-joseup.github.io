@@ -3,4 +3,10 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+  width: 100%;
+  font-family: var(--title-font, inherit);
+  font-size: var(--title-size, 4rem);
+  color: var(--title-color, var(--color-text));
+  background-color: var(--title-bg, transparent);
+  line-height: 1.1;
 }

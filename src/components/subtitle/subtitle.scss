@@ -1,6 +1,9 @@
 .subtitle {
   display: flex;
-  align-items: left;
-  justify-content: left;
+  align-items: center;
+  justify-content: flex-start;
   text-align: left;
+  font-family: var(--subtitle-font, inherit);
+  font-size: var(--subtitle-size, 2rem);
+  color: var(--subtitle-color, var(--color-text));
 }

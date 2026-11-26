@@ -1,64 +1,78 @@
-// Colors
-$primary-color: #2B2B38;
-$secondary-color: #1d2029;
-$accent-color-1: #C8102E;
-$accent-color-2: #002F6C;
-$bg-color: #12111a;
-$text-on-primary: #F7F2EA;
-$line-color: #8F672B;
+@use '../../index.scss' as *;
 
-// Components
 .title {
-    text-align: center;
-    font-family: 'Momo Trust Display', sans-serif;
-    font-size: 100px;
-    width: 100%;
-    background-color: $accent-color-1;
+  --title-font: 'Momo Trust Display', sans-serif;
+  --title-size: clamp(2.5rem, 6vw, 100px);
+  --title-bg: #{$accent-color-1};
+  --title-color: #{$text-on-primary};
+  padding-block: 0.75rem;
 }
 
-.container {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 2rem;
-    height: 100%;
-    align-items: start;
+.pageStack {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding-block: 1.5rem 3rem;
 }
 
-.container > .intro, .spotify, .linkedin {
-    width: 100%;
-    height: 100%;
+.heroGrid {
+  --layout-cols-desktop: 2fr 1fr 1fr;
+  --layout-cols-tablet: 1fr 1fr;
+  --layout-align: stretch;
 }
 
 .intro {
-  grid-column: span 2;
-  background-color: $secondary-color;
-  padding: 1.5rem;
-  gap: 1.5rem;
-  border-radius: 12px;
-  font-size: 0.85rem;
+  --tai-bg: #{$secondary-color};
+  --tai-font: 'Funnel Display', sans-serif;
+  --tai-columns: minmax(0, 2fr) minmax(0, 3fr);
+  font-size: 0.9rem;
+
+  @media (max-width: $bp-tablet) {
+    grid-column: 1 / -1;
+  }
 }
 
-.myself {
-    border-color: $accent-color-1;
-    height: 18vw;
-    width: 50%;
+.spotifyCard {
+  --embed-card-bg: #{$spotify-green};
+  --pill-border: #{$text-on-primary};
+  --pill-dot: #{$text-on-primary};
+}
+
+.linkedinCard {
+  --embed-card-bg: #{$linkedin-blue};
+  --pill-border: #{$text-on-primary};
+  --pill-dot: #{$text-on-primary};
+}
+
+.notionCard {
+  --embed-card-bg: #{$secondary-color};
+  --pill-border: #{$text-on-primary};
+  --pill-dot: #{$text-on-primary};
 }
 
 .spotify,
 .linkedin {
-    grid-column: span 1;
-    flex-shrink: 0;
-    border-radius: 12px;
-    border: none;
+  width: 100%;
+  min-height: 360px;
+  height: 100%;
+  border-radius: 8px;
+  border: none;
+}
+
+.notionFrame {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .notion {
   display: block;
-  margin-inline: auto;
-  margin-block: 1.5rem;
-  width: 90%;
+  width: 100%;
   height: clamp(118rem, 152rem - 28vw, 135rem);
-  border-radius: 0.75rem;
   border: none;
   overflow: hidden;
+
+  @media (max-width: $bp-foldable) {
+    height: 145rem;
+  }
 }

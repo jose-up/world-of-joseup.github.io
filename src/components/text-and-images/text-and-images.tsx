@@ -1,12 +1,15 @@
-import type { ReactNode } from 'react';
+import type { CSSProperties, ReactNode } from 'react';
 import './text-and-images.scss';
 
 export interface InformationContainer {
   image: string;
   alt: string;
   info: ReactNode;
-  font: string;
-  className: string;
+  font?: string;
+  backgroundColor?: string;
+  textColor?: string;
+  className?: string;
+  orientation?: 'horizontal' | 'vertical';
 }
 
 export default function TextAndImages({
@@ -14,19 +17,32 @@ export default function TextAndImages({
   alt,
   info,
   font,
-  className,
+  backgroundColor,
+  textColor,
+  className = '',
+  orientation = 'horizontal',
 }: InformationContainer) {
+  const containerStyle: CSSProperties = {
+    ...(backgroundColor && { backgroundColor }),
+    ...(textColor && { color: textColor }),
+  };
+
+  const textStyle: CSSProperties = {
+    ...(font && { fontFamily: font }),
+  };
+
   return (
-    <div className={`text-and-images ${className}`}>
+    <div
+      className={`text-and-images text-and-images--${orientation} ${className}`.trim()}
+      style={containerStyle}
+    >
       <img
         src={image}
         alt={alt}
         className="built-in-image"
+        loading="lazy"
       />
-      <div
-        className="text-and-images__info"
-        style={{ fontFamily: font }}
-      >
+      <div className="text-and-images__info" style={textStyle}>
         {info}
       </div>
     </div>

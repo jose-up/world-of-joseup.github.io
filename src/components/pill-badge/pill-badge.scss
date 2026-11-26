@@ -1,0 +1,23 @@
+.pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.3rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-family: var(--pill-font, 'Funnel Display', sans-serif);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1px solid var(--pill-border, currentColor);
+  background-color: var(--pill-bg, transparent);
+  color: var(--pill-color, inherit);
+  white-space: nowrap;
+
+  &__dot {
+    width: 0.45rem;
+    height: 0.45rem;
+    border-radius: 50%;
+    background-color: var(--pill-dot, currentColor);
+    flex-shrink: 0;
+  }
+}
