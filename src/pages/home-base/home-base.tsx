@@ -7,6 +7,8 @@ import {
   Title,
 } from '../../components';
 
+import boopImg from '../../assets/photos/boop.webp';
+
 export default function HomeBase() {
   return (
     <main>
@@ -19,7 +21,7 @@ export default function HomeBase() {
         <Reveal>
           <LayoutContainer direction="horizontal" className={styles.heroGrid}>
             <TextAndImages
-              image='src/assets/photos/boop.webp'
+              image={boopImg}
               alt="Joseph being a goofy goober"
               className={styles.intro}
               font="'Funnel Display', sans-serif"

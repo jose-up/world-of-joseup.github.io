@@ -30,7 +30,7 @@ export default function HomeRow() {
   const activeIcons = ROUTE_ICONS[cleanPath] ?? ROUTE_ICONS.default;
 
   return (
-    <nav className="home-row">
+    <nav className="home-row" data-route={cleanPath}>
       <IconRow icons={activeIcons} />
       <PageButtons />
     </nav>

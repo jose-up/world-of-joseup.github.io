@@ -10,6 +10,7 @@ import {
   Title,
 } from '../../components';
 import type { ProjectCardProps } from '../../components/project-card/project-card';
+import professionalImg from '../../assets/photos/professional.webp';
 
 const PROJECTS: ProjectCardProps[] = [
   {
@@ -73,7 +74,7 @@ export default function CompSci() {
 
             <LayoutContainer direction="vertical" className={styles.rightColumn}>
               <TextAndImages
-                image='src/assets/photos/professional.webp'
+                image={professionalImg}
                 alt="Professional Headshot"
                 className={styles.blurb}
                 font="'Funnel Display', sans-serif"

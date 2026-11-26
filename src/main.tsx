@@ -1,6 +1,6 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { HashRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 import {
   HomeBase, CompSci, SocialMedia
@@ -10,7 +10,6 @@ import {
 } from './components';
 
 import './index.scss';
-<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <HashRouter>
@@ -19,6 +18,7 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/" element={<HomeBase />} />
         <Route path="/comp-sci" element={<CompSci />} />
         <Route path="/social-media" element={<SocialMedia />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </HashRouter>
   </StrictMode>
