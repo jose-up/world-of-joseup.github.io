@@ -10,7 +10,7 @@ import {
 } from './components';
 
 import './index.scss';
-
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <HashRouter>
