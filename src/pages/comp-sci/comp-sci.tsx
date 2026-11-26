@@ -12,13 +12,18 @@ import {
 import type { ProjectCardProps } from '../../components/project-card/project-card';
 import professionalImg from '../../assets/photos/professional.webp';
 
+import DOMTool from '../../assets/photos/coding-projects/budgetmanagement.webp';
+import upsHackathon from '../../assets/photos/coding-projects/flightreadiness.webp';
+import selfRouted from '../../assets/photos/coding-projects/website.webp';
+import aiProject from '../../assets/photos/coding-projects/abyssinia.webp';
+
 const PROJECTS: ProjectCardProps[] = [
   {
     title: 'Budget Management Tool',
     description:
       'This was one of the first projects I made after the initial development of my website. This uses localStorage for data, contains separate gift tracking, and features dyslexia-friendly typography to improve accessibility for users.',
     status: 'completed',
-    mediaSrc: 'src/assets/photos/coding-projects/budgetmanagement.webp',
+    mediaSrc: DOMTool,
     mediaType: 'image',
     href: '/web-apps/budget-management-tool/budgetmanagement.html',
     tags: ['JavaScript', 'DOM', 'Accessibility'],
@@ -28,7 +33,7 @@ const PROJECTS: ProjectCardProps[] = [
     description:
       'This was a UPS Hackathon project from my internship in Summer of 2026! I implemented a bipartite graph adjacency list and matrix system mapping interrelated signal errors into clear operational business logic.',
     status: 'completed',
-    mediaSrc: 'src/assets/photos/coding-projects/flightreadiness.webp',
+    mediaSrc: upsHackathon,
     mediaType: 'image',
     href: 'https://github.com/UPS-Hackathon-2026/a-line-pilots',
     tags: ['Graph Theory', 'Java', 'Algorithms'],
@@ -38,7 +43,7 @@ const PROJECTS: ProjectCardProps[] = [
     description:
       'A lot of my professional knowledge on frameworks and UI design went into this project! Months of working on industry level apps allowed me to develop one of my best front-end heavy projects.',
     status: 'completed',
-    mediaSrc: 'src/assets/photos/coding-projects/website.webp',
+    mediaSrc: selfRouted,
     mediaType: 'image',
     href: 'https://worldofjoseup.live/',
     tags: ['ReactJS', 'Typography', 'UI Design'],
@@ -48,7 +53,7 @@ const PROJECTS: ProjectCardProps[] = [
     description:
       'In a world where privacy policies and Terms-of-Service documents are being manipulated to benefit corporations, we reach a dilemma: consumers cannot easily access this vital information. With Abyssinia, I hope to develop an LLM that will give consumers the transparency to consciously click "I Agree" to their favorite services.',
     status: 'in-progress',
-    mediaSrc: 'src/assets/photos/coding-projects/abyssinia.webp',
+    mediaSrc: aiProject,
     mediaType: 'image',
     tags: ['AI', 'NLP', 'Databases and SQL'],
   },

@@ -15,12 +15,4 @@
   padding-block: 1.5rem;
 
   --icon-row-bg: #063F8A;
-
-  &[data-route='/comp-sci'] {
-    --icon-row-bg: #1D2029;
-  }
-
-  &[data-route='/social-media'] {
-    --icon-row-bg: #C8102E;
-  }
 }
