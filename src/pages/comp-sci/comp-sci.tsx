@@ -31,11 +31,11 @@ const PROJECTS: ProjectCardProps[] = [
   {
     title: 'Flight-Readiness & Advisory Analysis',
     description:
-      'This was a UPS Hackathon project from my internship in Summer of 2026! I implemented a bipartite graph adjacency list and matrix system mapping interrelated signal errors into clear operational business logic.',
+      '(In the projects tab of my LinkedIn) This was a UPS Hackathon project from my internship in Summer of 2026! I implemented a bipartite graph adjacency list and matrix system mapping interrelated signal errors into clear operational business logic.',
     status: 'completed',
     mediaSrc: upsHackathon,
     mediaType: 'image',
-    href: 'https://github.com/UPS-Hackathon-2026/a-line-pilots',
+    href: 'https://www.linkedin.com/in/joseph-zeru/details/projects/',
     tags: ['Graph Theory', 'Java', 'Algorithms'],
   },
   {

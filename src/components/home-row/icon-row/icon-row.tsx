@@ -29,9 +29,9 @@ export default function IconRow({ icons }: { icons: LinkedIcon[] }) {
           href={URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="icon-link"
+          className="iconLink"
         >
-          <img src={src} alt={`${iconName} link`} className="nav-icon" />
+          <img src={src} alt={`${iconName} link`} className="navIcon" />
         </a>
       );
     })
